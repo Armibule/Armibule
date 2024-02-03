@@ -1,0 +1,156 @@
+/*:root {
+    --spaceColorDark: #01012c;
+    --spaceColor: #060682;
+}*/
+
+@keyframes introBody {
+    0% {
+        background-color: var(--spaceColorDark);
+        overflow: hidden;
+    } 99% {
+        background-color: var(--spaceColor);
+        overflow: hidden;
+    } 100% {
+        background-color: var(--spaceColor);
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+@keyframes introBody2 {
+    0% {filter: blur(0)}
+    5% {filter: blur(0) brightness(1.3) saturate(2)}
+    10% {filter: blur(0)}
+    15% {filter: blur(0)}
+    20% {filter: blur(0) brightness(1.2) saturate(2)}
+    25% {filter: blur(0)}
+    30% {filter: blur(0)}
+    35% {filter: blur(0)}
+    40% {filter: blur(0)}
+    45% {filter: blur(0)}
+    50% {filter: blur(0) brightness(0.8) saturate(2)}
+    55% {filter: blur(0)}
+    60% {filter: blur(0)}
+    65% {filter: blur(0)}
+    70% {filter: blur(0) brightness(1.5) saturate(2)}
+    75% {filter: blur(0)}
+    80% {filter: blur(0)}
+    85% {filter: blur(0)}
+    90% {filter: blur(0) brightness(1.3) saturate(2)}
+    95% {filter: blur(0)}
+    100% {filter: blur(0)}
+}
+
+body {
+    perspective: 50px;
+    animation: introBody 5.5s forwards , introBody2 4s forwards;
+}
+
+@keyframes introScene {
+    0% {
+        top: 0;
+        left: 0;
+    } 10% {
+        top: 10px;
+        left: 10px;
+    } 20% {
+        top: -10px;
+        left: 0px;
+    } 30% {
+        top: 10px;
+        left: 0px;
+    } 40% {
+        top: 0px;
+        left: -10px;
+    } 50% {
+        top: 10px;
+        left: 10px;
+    } 60% {
+        top: -10px;
+        left: 0px;
+    } 70% {
+        top: 10px;
+        left: 0px;
+    } 80% {
+        top: 0px;
+        left: -10px;
+    } 90% {
+        top: 0px;
+        left: 10px;
+    }  100% {
+        top: 0px;
+        left: 0px;
+    }
+}
+
+@keyframes introScene2 {
+    0% {
+        rotate: 0deg;
+    } 20% {
+        rotate: 2deg;
+    } 40% {
+        rotate: -1deg;
+    } 60% {
+        rotate: 1deg;
+    } 80% {
+        rotate: -1deg;
+    } 100% {
+        rotate: 0deg;
+    }
+}
+
+#introScene {
+    position: fixed;
+    perspective: 100px;
+    animation: introScene 4s forwards , introScene2 4s forwards;
+}
+
+#intro {
+    perspective: 100px;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+@keyframes introStar {
+    0% {
+        opacity: 1;
+    } 80% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+    }
+}
+
+.introStar {
+    width: 10px;
+    height: 10px;
+    background-color: #faa;
+    border-radius: 50%;
+    outline: solid 2px #ffaaaaaa;
+
+    animation: introStar 5s forwards;
+}
+
+@keyframes introMain {
+    0% {
+        opacity: 0;
+        transform: translate3d(0px, 0px, -1500px);
+        border-radius: 100px;
+    } 60% {
+        opacity: 0;
+        transform: translate3d(0px, 0px, -1500px);
+        border-radius: 100px;
+    } 100% {
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0);
+        border-radius: 0px;
+    }
+}
+
+#main {
+    animation: introMain 5s;
+    
+    background-color: white;
+}

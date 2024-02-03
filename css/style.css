@@ -1,0 +1,20 @@
+:root {
+  --spaceColorDark: #01012c;
+  --spaceColor: #060682;
+}
+  
+body {
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+#main {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
