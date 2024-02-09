@@ -1,20 +1,85 @@
 :root {
   --spaceColorDark: #01012c;
   --spaceColor: #060682;
+  
+  --primary: #ffffff;
+  --primaryTop: color-mix(in srgb, var(--primary) 90%, black);
+  --secondary: #000000;
+  --secondaryTransparent: color-mix(in srgb, var(--secondary) 15%, transparent);
+}
+
+* {
+  box-sizing: border-box;
 }
   
 body {
   margin: 0;
   width: 100vw;
   min-height: 100vh;
+  
+  font-family: sans-serif;
 }
 
 #main {
   width: 100vw;
   min-height: 100vh;
+  background-color: var(--primary);
 }
 
+/* HEADER */
 header {
+  --offset: 1vw;
+  --height: 60px;
+  --padding: 8px;
+  
+  position: sticky;
+  
+  top: var(--offset);
+  left: var(--offset);
+  
   display: flex;
   align-items: center;
+  
+  width: calc( 100% - 2*(var(--offset) + var(--padding)) );
+  height: var(--height);
+  
+  padding: var(--padding) calc(var(--padding) * 2);
+  margin-bottom: calc(var(--padding) + var(--offset));
+  border-radius: calc(var(--offset)/2);
+  background-color: var(--secondaryTransparent);
+  
+  /* ressource intensive */
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 2px -2px var(--secondary);
 }
+#logo {
+  height: 100%;
+}
+
+
+/* HERO */
+.hero {
+  --background: var(--primaryTop);
+  
+  padding: 4vw 6vw;
+  background: var(--background);
+}
+.heroText {
+  position: relative;
+  width: max-content;
+}
+.heroText::before {
+  content: "";
+  position: absolute;
+  
+  bottom: -10px;
+  left: -14px;
+  width: 30px;
+  height: 30px;
+  
+  border-bottom: solid 2px var(--secondary);
+  border-left: solid 2px var(--secondary);
+  border-bottom-left-radius: 6px;
+}
+
+/* INDEX */

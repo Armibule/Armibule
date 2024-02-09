@@ -5,12 +5,14 @@
 
 @keyframes introBody {
     0% {
+        perspective: 50px;
         background-color: var(--spaceColorDark);
         overflow: hidden;
     } 99% {
         background-color: var(--spaceColor);
         overflow: hidden;
     } 100% {
+        perspective: 50px;
         background-color: var(--spaceColor);
 
         overflow-x: hidden;
@@ -39,16 +41,16 @@
     85% {filter: blur(0)}
     90% {filter: blur(0) brightness(1.3) saturate(2)}
     95% {filter: blur(0)}
-    100% {filter: blur(0)}
+    100% {filter: none}
 }
 
-body {
-    perspective: 50px;
-    animation: introBody 5.5s forwards , introBody2 4s forwards;
+body.doIntro {
+    animation: introBody 5.5s , introBody2 4s forwards;
 }
 
 @keyframes introScene {
     0% {
+        perspective: 100px;
         top: 0;
         left: 0;
     } 10% {
@@ -79,6 +81,7 @@ body {
         top: 0px;
         left: 10px;
     }  100% {
+        perspective: 100px;
         top: 0px;
         left: 0px;
     }
@@ -100,13 +103,13 @@ body {
     }
 }
 
-#introScene {
-    position: fixed;
-    perspective: 100px;
-    animation: introScene 4s forwards , introScene2 4s forwards;
+
+body.doIntro #introScene {
+    animation: introScene 5s , introScene2 4s;
 }
 
-#intro {
+
+body.doIntro #intro {
     perspective: 100px;
     position: fixed;
     inset: 0;
@@ -149,8 +152,6 @@ body {
     }
 }
 
-#main {
+body.doIntro #main {
     animation: introMain 5s;
-    
-    background-color: white;
 }
