@@ -29,12 +29,6 @@ if (doIntro != "no") {
     const STAR_MIN_SCALE = 100
     const STAR_MAX_SCALE = 3000
 
-
-    // not perfect but it works
-    function randint(min, max) {
-        return min + Math.round((max-min) * Math.random())
-    }
-
     function spawnStar() {
         star = document.createElement("div")
 
