@@ -3,22 +3,28 @@
   --spaceColor: #060682;
   
   /* Light */
-  --primary_Light: #ffffff;
-  --secondary_Light: #000000;
+  --primary_Light: #ddddff;
+  --secondary_Light: #000033;
   
   --primaryTop_Light: color-mix(in srgb, var(--primary_Light) 90%, var(--secondary_Light));
   --primaryTransparent_Light: color-mix(in srgb, var(--primary_Light) 15%, transparent);
   --secondaryTransparent_Light: color-mix(in srgb, var(--secondary_Light) 15%, transparent);
   
+  --contrast_Light: #e61e82;
+  --contrastLow_Light: color-mix(in hsl, var(--secondary_Light) 10%, var(--contrast_Light));
+  
   /* Dark */
   /* needs more contrast */
   
-  --primary_Dark: #000000;
-  --secondary_Dark: #ffffff;
+  --primary_Dark: #000011;
+  --secondary_Dark: #eeeeff;
   
   --primaryTop_Dark: color-mix(in srgb, var(--primary_Dark) 80%, var(--secondary_Dark));
   --primaryTransparent_Dark: color-mix(in srgb, var(--primary_Dark) 15%, transparent);
   --secondaryTransparent_Dark: color-mix(in srgb, var(--secondary_Dark) 20%, transparent);
+  
+  --contrast_Dark: #fc53a8;
+  --contrastLow_Dark: color-mix(in hsl, var(--secondary_Dark) 15%, var(--contrast_Dark));
   
   
   --primary: var(--primary_Dark);
@@ -26,12 +32,16 @@
   --secondary: var(--secondary_Dark);
   --primaryTransparent: var(--primaryTransparent_Dark);
   --secondaryTransparent: var(--secondaryTransparent_Dark);
+  --contrast: var(--contrast_Dark);
+  --contrastLow: var(--contrastLow_Dark);
   
   /*--primary: var(--primary_Light);
   --primaryTop: var(--primaryTop_Light);
   --secondary: var(--secondary_Light);
   --primaryTransparent: var(--primaryTransparent_Light);
-  --secondaryTransparent: var(--secondaryTransparent_Light);*/
+  --secondaryTransparent: var(--secondaryTransparent_Light);
+  --contrast: var(--contrast_Light);
+  --contrastLow: var(--contrastLow_Light);*/
   
 }
 
@@ -41,15 +51,16 @@
   
 body {
   margin: 0;
-  width: 100vw;
   min-height: 100vh;
   
   font-family: sans-serif;
   color: var(--secondary);
+  
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #main {
-  width: 100vw;
   min-height: 100vh;
   background-color: var(--primary);
 }
@@ -81,8 +92,95 @@ header {
   backdrop-filter: blur(5px);
   box-shadow: 0 2px 2px -2px var(--secondary);
 }
+.headerField:first-of-type {
+  margin-left: auto;
+}
+.headerField {
+  margin-inline: 1vw;
+  cursor: default;
+  
+  padding: 10px;
+  border-radius: 5px;
+  
+  transition: all 0.5s;
+}
+.headerField:hover {
+  background-color: var(--primaryTransparent);
+  box-shadow: inset 0 0 3px -2px var(--primary);
+  cursor: pointer;
+}
+.headerField + .headerField {
+  position: relative;
+}
+.headerField + .headerField::before {
+  content: "";
+  
+  position: absolute;
+  top: 10%;
+  left: -1vw;
+  
+  width: 2px;
+  height: 80%;
+  
+  background-color: var(--secondary);
+  opacity: 0.2;
+}
 #logo {
   height: 100%;
+}
+
+b {
+  color: var(--contrastLow)
+}
+p {
+  white-space: pre-line;
+  text-align: justify;
+}
+ul {
+  gap: 5px;
+}
+ul {
+  border-left: solid 2px var(--secondaryTransparent);
+  border-radius: 2px;
+  transition: border-left-color 1s;
+}
+ul:hover {
+  border-left-color: var(--contrastLow);
+}
+li {
+  margin-block: 0.5em;
+}
+li::marker {
+  color: var(--secondaryTransparent);
+}
+a {
+  position: relative;
+  
+  color: transparent;
+  background: linear-gradient(135deg, var(--contrastLow), var(--contrast));
+  background-clip: text;
+}
+a::before {
+  content: "";
+  
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  width: 80%;
+  height: 1.5px;
+  
+  background: linear-gradient(to right, var(--contrastLow), var(--contrast));
+  border-radius: 1px;
+  
+  transition: all 0.5s;
+}
+a:hover::before {
+  left: 0%;
+  width: 100%;
+}
+a:active::before {
+  left: 15%;
+  width: 70%;
 }
 
 
@@ -152,3 +250,33 @@ header {
 }
 
 /* INDEX */
+.section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+  box-sizing: content-box;
+  margin-block: 20px;
+  padding: 40px;
+  min-height: 80vh;
+  
+  background-color: var(--primaryTop);
+}
+.sectionTitle {
+  background-color: var(--primaryTransparent);
+  width: max-content;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px -2px var(--primaryTransparent);
+}
+.section p {
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+.section li {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+.section ul {
+  margin-bottom: 1em;
+}

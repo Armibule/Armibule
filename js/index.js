@@ -73,38 +73,46 @@ class Ball {
     
     if (this.x < 0) {
       this.vx *= -0.96;
-      this.x = 0;
+      this.x = 0.01;
     }
     if (this.y < 0) {
       this.vy *= -0.96;
-      this.y = 0;
+      this.y = 0.01;
     }
     if (1 < this.x) {
       this.vx *= -0.96;
-      this.x = 1;
+      this.x = 0.99;
     }
     if (1 < this.y) {
       this.vy *= -0.96;
-      this.y = 1;
+      this.y = 0.99;
     }
   }
   
   resolve(ball) {    
     let distX = this.x - ball.x;
     let distY = this.y - ball.y;
+
+    if (Math.abs(distX) + Math.abs(distY) < 0.01) {
+      distX = 0.01
+    }
     
     let dist = Math.sqrt(distX*distX + distY*distY);
     let diff = dist - (this.radius + ball.radius);
     
     if (diff < 0) {
-      let xOffset = distX * (diff / dist);
-      let yOffset = distY * (diff / dist);
+      let xOffset = distX * (diff / dist) / 2;
+      let yOffset = distY * (diff / dist) / 2;
+
+      this.x -= xOffset;
+      ball.x += xOffset;
+      this.vx -= xOffset/2;
+      ball.vx += xOffset/2;
       
-      this.x -= xOffset/2;
-      ball.x += xOffset/2;
-      
-      this.y -= yOffset/2;
-      ball.y += yOffset/2;
+      this.y -= yOffset;
+      ball.y += yOffset;
+      this.vy -= yOffset/2;
+      ball.vy += yOffset/2;
     }
   }
 }
@@ -115,7 +123,7 @@ let balls = [];
 const BALLS_COUNT = 30;
 
 for (i = 0 ; i < BALLS_COUNT ; i++) {
-  balls.push(new Ball(Math.random() * 0.5, Math.random() * 0.5, 0.05 + BALLS_COUNT * Math.random() / 10000, Math.random() / 50, Math.random() / 50))
+  balls.push(new Ball(Math.random() * 0.5, Math.random() * 0.5, 0.02 + BALLS_COUNT * Math.random() / 2000, Math.random() / 50, Math.random() / 50))
 }
 for (i = 0 ; i < balls.length ; i++) {
   ball = balls[i]
@@ -147,16 +155,17 @@ function ballsToArray() {
 }
 
 const parent = "indexHero";
-var parentRect = document.getElementById(parent).getClientRects()[0];
+var Cheight = document.getElementById(parent).getClientRects()[0].height;
+var Cwidth = document.body.getClientRects()[0].width;
 
 function setup() {
-  const canvas = createCanvas(parentRect.width, parentRect.height, WEBGL);
+  const canvas = createCanvas(Cwidth, Cheight, WEBGL);
   canvas.canvas.id = "heroCanvas";
   canvas.parent(parent);
 
   shader(exampleShader);
   
-  onResize()
+  onResize();
 
   window.addEventListener('resize', onResize, true);
   
@@ -168,27 +177,46 @@ function setup() {
 }
 
 function onResize() {
-  parentRect = document.getElementById(parent).getClientRects()[0];
-  resizeCanvas(parentRect.width, parentRect.height);
-  exampleShader.setUniform("yRatio", 2.0 * parentRect.width/parentRect.height);
-
-  console.log("resize");
+  Cheight = document.getElementById(parent).getClientRects()[0].height;
+  Cwidth = document.body.getClientRects()[0].width;
+  resizeCanvas(Cwidth, Cheight);
+  
+  exampleShader.setUniform("yRatio", Cwidth/Cheight);
+  // console.log("resize");
 }
 
 
 function draw() {
-  let mx = min(1, max(0, ((mouseX - parentRect.x) / width))) * 1.1;
-  let my = min(1, max(0, ((mouseY - parentRect.y) / height))) * 1.1;
+
+  if (!isVisible(canvas)) {
+    return;
+  }
+
+  let mx = min(1, max(0, (mouseX / width)));
+  let my = 1-min(1, max(0, (mouseY / height)));
+
+  let gx;
+  let gy;
+  let scale;
+  let ball;
  
   if (mouseDown) {
     for (i = 0 ; i < balls.length ; i++) {
       ball = balls[i]
-      ball.update((mx-ball.x) / 4000, -((my-ball.y)) / 8000)
+      gx = (mx-ball.x) / 8000;
+      gy = (my-ball.y) / 16000;
+
+      ball.update( gx, gy );  
     }
   } else {
     for (i = 0 ; i < balls.length ; i++) {
-      ball = balls[i]
-      ball.update((ball.x-mx) / 8000, -((ball.y-my)) / 16000)
+      ball = balls[i];
+      gx = ball.x-mx;
+      gy = ball.y-my;
+
+      scale = 0.00005/(gx*gx + gy*gy)
+
+      ball.update( Math.min(gx*scale, 0.1), Math.min(gy*scale, 0.1) );
     }
   }
   
@@ -208,6 +236,8 @@ function draw() {
   }
   
   exampleShader.setUniform("balls", ballsToArray());
+  
+  // exampleShader.setUniform("hand", [mx, my]);
   
   clear();
   

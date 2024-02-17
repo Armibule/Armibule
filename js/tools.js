@@ -12,3 +12,9 @@ document.body.onmousedown = function() {
 document.body.onmouseup = function() {
   mouseDown -= 1;
 }
+
+function isVisible(elm) {
+  let rect = elm.getBoundingClientRect();
+  let viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+  return 0 <= rect.bottom && rect.top <= viewHeight;
+}
