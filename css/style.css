@@ -12,6 +12,7 @@
   
   --contrast_Light: #e61e82;
   --contrastLow_Light: color-mix(in hsl, var(--secondary_Light) 10%, var(--contrast_Light));
+  --contrastTransparent_Light: color-mix(in srgb, var(--contrast_Light) 30%, transparent);
   
   /* Dark */
   /* needs more contrast */
@@ -25,6 +26,7 @@
   
   --contrast_Dark: #fc53a8;
   --contrastLow_Dark: color-mix(in hsl, var(--secondary_Dark) 15%, var(--contrast_Dark));
+  --contrastTransparent_Dark: color-mix(in srgb, var(--contrast_Dark) 30%, transparent);
   
   
   --primary: var(--primary_Dark);
@@ -34,6 +36,7 @@
   --secondaryTransparent: var(--secondaryTransparent_Dark);
   --contrast: var(--contrast_Dark);
   --contrastLow: var(--contrastLow_Dark);
+  --contrastTransparent: var(--contrastTransparent_Dark);
   
   /*--primary: var(--primary_Light);
   --primaryTop: var(--primaryTop_Light);
@@ -41,7 +44,8 @@
   --primaryTransparent: var(--primaryTransparent_Light);
   --secondaryTransparent: var(--secondaryTransparent_Light);
   --contrast: var(--contrast_Light);
-  --contrastLow: var(--contrastLow_Light);*/
+  --contrastLow: var(--contrastLow_Light);
+  --contrastTransparent: var(--contrastTransparent_Light);*/
   
 }
 
@@ -298,6 +302,10 @@ a:active::before {
   
   background-color: var(--primaryTop);
 }
+.sectionTop {
+  display: flex;
+  align-items: center;
+}
 .sectionTitle {
   width: max-content;
   padding: 20px;
@@ -314,6 +322,59 @@ a:active::before {
   opacity: 1;
   border-radius: 5px;
   transform: none;
+}
+.sectionSee {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  
+  padding: 5px 10px;
+  margin-left: auto;
+  text-align: right;
+  
+  border-radius: 10px;
+  border: 1.5px solid var(--contrastLow);
+  
+  outline: solid 0px transparent;
+  
+  background: linear-gradient(135deg, var(--contrastLow), var(--contrast)) text;
+  color: transparent;
+  
+  font-size: 1.2rem;
+  cursor: pointer;
+  
+  transition: all 0.3s 0.1s;
+}
+.sectionSee:hover {
+  width: calc(2.5rem + 5ch);
+  border: 2px solid var(--contrastLow);
+  outline: solid 2px var(--contrastTransparent);
+  
+  transition: all 0.3s;
+}
+.sectionSee:active {
+  outline: solid 4px var(--contrastTransparent);
+  transition: outline 0.1s;
+}
+.sectionSee::before {
+  content: "voir ";
+  
+  position: absolute;
+  right: 2.5rem;
+  
+  background: linear-gradient(135deg, var(--contrastLow), var(--contrast)) text;
+  color: transparent;
+  
+  opacity: 0;
+  translate: 10px;
+  scale: 0.8;
+  transition: all 0.3s;
+}
+.sectionSee:hover::before {
+  opacity: 1;
+  translate: 0;
+  scale: 1;
+  transition: all 0.3s 0.1s;
 }
 .section p {
   font-size: 1.2em;
