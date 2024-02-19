@@ -71,7 +71,7 @@ if (doIntro != "no") {
 
     // remove all stars after animation
     setTimeout(() => {
-        onResize
+        onResize()
         if (doIntro != "always") {
             storage.setItem("doIntro", "no")
         }

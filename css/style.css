@@ -7,7 +7,7 @@
   --secondary_Light: #000033;
   
   --primaryTop_Light: color-mix(in srgb, var(--primary_Light) 90%, var(--secondary_Light));
-  --primaryTransparent_Light: color-mix(in srgb, var(--primary_Light) 15%, transparent);
+  --primaryTransparent_Light: color-mix(in srgb, var(--primary_Light) 30%, transparent);
   --secondaryTransparent_Light: color-mix(in srgb, var(--secondary_Light) 15%, transparent);
   
   --contrast_Light: #e61e82;
@@ -97,17 +97,22 @@ header {
 }
 .headerField {
   margin-inline: 1vw;
-  cursor: default;
+  user-select: none;
   
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   
   transition: all 0.5s;
 }
 .headerField:hover {
-  background-color: var(--primaryTransparent);
-  box-shadow: inset 0 0 3px -2px var(--primary);
+  background-color: var(--secondaryTransparent);
+  box-shadow: 0 1px 3px -3px var(--primary);
+  border-radius: 5px;
+  
   cursor: pointer;
+}
+.headerField:active {
+  border-radius: 10px;
 }
 .headerField + .headerField {
   position: relative;
@@ -127,10 +132,36 @@ header {
 }
 #logo {
   height: 100%;
+  
+  transition: 0.3s;
+}
+#logo:hover {
+  rotate: -5deg;
+  scale: 1.1;
+  
+  filter: drop-shadow(0 2px 2px var(--primaryTransparent));
+  
+  cursor: pointer;
+}
+#logo:active {
+  rotate: -5deg;
+  scale: 0.98;
 }
 
+.section b {
+  color: var(--secondary);
+  transition: color 2s, text-shadow 0.5s;
+}
+.sectionSeen b {
+  color: var(--contrastLow);
+}
 b {
-  color: var(--contrastLow)
+  color: var(--contrastLow);
+}
+b:hover {
+  color: var(--contrast);
+  text-shadow: 0 2px 3px var(--primary);
+  transition: color 0.5s, text-shadow 0.5s;
 }
 p {
   white-space: pre-line;
@@ -152,6 +183,10 @@ li {
 }
 li::marker {
   color: var(--secondaryTransparent);
+  transition: color 0.5s;
+}
+li:hover::marker {
+  color: var(--contrastLow);
 }
 a {
   position: relative;
@@ -247,6 +282,7 @@ a:active::before {
 #heroCanvas {
   position: absolute;
   inset: 0;
+  height: 100% !important;
 }
 
 /* INDEX */
@@ -263,11 +299,21 @@ a:active::before {
   background-color: var(--primaryTop);
 }
 .sectionTitle {
-  background-color: var(--primaryTransparent);
   width: max-content;
   padding: 20px;
-  border-radius: 5px;
   box-shadow: 0px 2px 6px -2px var(--primaryTransparent);
+  
+  background-color: transparent;
+  border-radius: 40px;
+  opacity: 0;
+  transform: translateX(-20px) scale(1.2);
+  transition: all 1s;
+}
+.sectionSeen .sectionTitle {
+  background-color: var(--primaryTransparent);
+  opacity: 1;
+  border-radius: 5px;
+  transform: none;
 }
 .section p {
   font-size: 1.2em;

@@ -1,4 +1,5 @@
-const storage = window.localStorage
+const storage = window.localStorage;
+const mainElement = document.getElementById("#main");
 
 // not perfect but it works
 function randint(min, max) {
