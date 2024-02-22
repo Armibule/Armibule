@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="assets/PP_transparent128.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/intro.css">
+    
+    <title>Armibule - Landing Page</title>
+</head>
+<body>
+    <div id="main">
+        <header>
+            <img src="assets/PP_transparent128.png" id="logo" onclick=" window.location = '/index.html' ">
+            <div class="headerField" onclick=" window.location = '/projects.html' ">⭐ projets</div>
+            <div class="headerField" onclick=" window.location = '/skills.html' ">📚 compétences</div>
+            <div class="headerField" onclick=" window.location = '/rewards.html' ">🏆 prix</div>
+            <div class="headerField" onclick=" window.location = '/contact.html' ">🚀 contact</div>
+        </header>
+
+        <div class="hero" id="projectsHero">
+            <div class="heroText">
+                <h1 id="welcome">Mes Projets</h2>
+                <h2 id="welcomeText">Et leurs explications</h1>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="sectionTop"><h1 class="sectionTitle">Que sont mes projets ?</h1></div>
+            <p>Les projets que je réalise se présentent comme des <b>défis</b> que je me lance suite à la <b>découverte</b> d'un sujet qui me semble intéressant.
+                Ils sont principalement centrés sur l'<b>informatique</b>, les <b>mathématiques</b> et d'autres domaines proches.
+                Je vous en présente ici un échantillon avec des détails supplémentaires ainsi que des éléments <b>interactifs</b>.
+            </p>
+        </div>
+
+        <div class="projects">
+            <!-- button class="projectsButtonLeft">◄</button -->
+            <div class="projectsCarousel">
+                <button class="projectButton" onclick=" window.location = '/projects/binaryLogic.html' ">
+                    <div class="projectButtonImgContainer"><img src="assets/logiqueBinaire.png"></div>
+                    <span>Logique Binaire</span>
+                </button>
+                <button class="projectButton" onclick=" window.location = '/projects/shaders.html' ">
+                    <div class="projectButtonImgContainer"><img src="assets/gradient.png"></div>
+                    <span>Les Shaders</span>
+                </button>
+                <button class="projectButton" onclick=" window.location = '/projects/chess.html' ">
+                    <div class="projectButtonImgContainer"><img src="assets/chess.png"></div>
+                    <span>Échecs</span>
+                </button>
+                <button class="projectButton" onclick=" window.location = '/projects/relayBot.html' ">
+                    <div class="projectButtonImgContainer"><img src="assets/relayBot.png"></div>
+                    <span>Relay Bot</span>
+                </button>
+                <button class="projectButton" onclick=" window.location = '/projects/binaryLogic.html' ">
+                    <div class="projectButtonImgContainer"><img src="assets/spaceShooter.png"></div>
+                    <span>Space Shooter</span>
+                </button>
+            </div>
+            <!-- button class="projectsButtonRight">►</button -->
+        </div>
+
+        <div class="section">
+            <div class="sectionTop"><h1 class="sectionTitle">La logique binaire 🔌</h1><button class="sectionSee" onclick=" window.location = '/projects/binaryLogic.html' ">➜</button></div>
+            <h2>Qu'est-ce que c'est ?</h2>
+            <p>La logique binaire ou <a href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)">algèbre bouléenne</a> est l'un des <b>fondements</b> sur lequel repose l'informatique.
+                Le principe est très simple : chaque information est constituée d'unités appelées <b>bits</b> ne pouvant se trouver qu'en seulement deux états différents, un 1 (vrai) ou un 0 (faux).
+                Ensuite, nous pouvons effectuer des <b>opérations</b> entre ces bits pour obtenir une nouvelle information, un nouveau bit.
+                
+                Il existe de nombreuses opérations dont la plupart ont deux bit d'entrée et un de sortie :</p>
+                
+            <ul>
+                <li>Les plus connues telles que  
+                    le <b>OR</b> ( OU en français, donne un bit vrai si au moins l'un des bits d'entrée est vrai ),
+                    le <b>AND</b> ( ET en français, donne un bit vrai si tous les bits d'entrée sont vrais ) ou 
+                    le <b>NOT</b> ( NON en français, inverse la valeur du bit d'entrée )</li>
+                
+                <li>D'autres plus complexes telles que le <b>NOR</b>, le <b>NAND</b>, le <b>XOR</b> ou le <b>XNOR</b></li>
+            </ul>
+                
+            <p>Ce qui est très intéressant, c'est qu'une chaine de bits peut représeter une très grande variété d'informations:
+                Des nombres, du texte, des images, un programme...
+                Par exemple pour les nombres, il est possible de les convertir en binaire qui est comme une manière de compter avec seulement deux chiffres <math>1010 = 10</math>, <math>11111101000 = 10</math>. 
+
+                Il est également possible avec des opérations bien choisies d'additionner des nombres, de les multiplier ou de créer un ordinateur complet !
+            </p>
+            <h2>Pouquoi ai-je réalisé ce projet, ce que j'ai fait et appris</h2>
+            <p>Je me suis lancé dans ce projet car j'ai toujours voulu savoir comment fonctionnent ces machines que nous utilisons tous les jours.
+                De plus, cela m'a aussi permit de comprendre plus profondément comment marchent les langages de programmation, de la tokenisation à la compilation.
+
+                Je me suis documenté et j'ai donc réalisé <b>ma propre architecture de processeur</b> ainsi que <b>mon propre langage de langage de programmation</b> compilé pour celle-ci que j'ai nommé <i>BubulleScript</i>.
+                Plus d'information de mon voyage dans l'article <a href="/projects/binaryLogic.html">Logique Binaire</a> !
+            </p>
+        </div>
+    </div>
+    
+    <script src="js/tools.js"></script>
+
+    <script src="js/projects.js"></script>
+</body>
+</html>

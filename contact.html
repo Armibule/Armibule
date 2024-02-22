@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="assets/PP_transparent128.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/intro.css">
+    
+    <title>Armibule - Landing Page</title>
+</head>
+<body>
+    <div id="main">
+        <header>
+            <img src="assets/PP_transparent128.png" id="logo" onclick=" window.location = '/index.html' ">
+            <div class="headerField" onclick=" window.location = '/projects.html' ">⭐ projets</div>
+            <div class="headerField" onclick=" window.location = '/skills.html' ">📚 compétences</div>
+            <div class="headerField" onclick=" window.location = '/rewards.html' ">🏆 prix</div>
+            <div class="headerField" onclick=" window.location = '/contact.html' ">🚀 contact</div>
+        </header>
+
+        <div class="section">
+            <div class="sectionTop"><h1 class="sectionTitle">Me contacter</h1></div>
+            <p>Je suis ouvert à vos messages ! Ci-dessous se trouvent les plateformes sur lesquelles vous pourrez me trouver</p>
+            <div id="contactList">
+                <button class="contact" onclick=" window.open('mailto:armand.gautry@gmail.com', '_blank').close() ">
+                    <img class="contactImg" src="assets/mail.svg">
+                    <span class="contactName">Mail</span>
+                </button>
+                <button class="contact" onclick=" window.open('https://discord.com/users/673517094217973760', '_blank').focus() ">
+                    <img class="contactImg" src="assets/discord.svg">
+                    <span class="contactName">Discord - Armibule</span>
+                </button>
+                <button class="contact" onclick=" window.open('https://github.com/Armibule', '_blank').focus() ">
+                    <img class="contactImg" src="assets/github-mark-white.svg">
+                    <span class="contactName">Github</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/tools.js"></script>
+</body>
+</html>

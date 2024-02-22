@@ -46,7 +46,6 @@
   --contrast: var(--contrast_Light);
   --contrastLow: var(--contrastLow_Light);
   --contrastTransparent: var(--contrastTransparent_Light);*/
-  
 }
 
 * {
@@ -59,6 +58,7 @@ body {
   
   font-family: sans-serif;
   color: var(--secondary);
+  background-color: var(--primary);
   
   overflow-x: hidden;
   overflow-y: auto;
@@ -117,6 +117,7 @@ header {
 }
 .headerField:active {
   border-radius: 10px;
+  transition: all 0.3s;
 }
 .headerField + .headerField {
   position: relative;
@@ -221,13 +222,19 @@ a:active::before {
   left: 15%;
   width: 70%;
 }
+math {
+  background-color: var(--primaryTransparent);
+  padding: 0.35em;
+  margin: 0.1em;
+  border-radius: 0.2em;
+}
 
 
 /* HERO */
 .hero {
   position: relative;
 
-  --background: var(--primaryTop);
+  --background: var(--primary);
   display: flex;
   align-items: center;
   
@@ -287,6 +294,7 @@ a:active::before {
   position: absolute;
   inset: 0;
   height: 100% !important;
+  width: 100% !important;
 }
 
 /* INDEX */
@@ -349,6 +357,7 @@ a:active::before {
   width: calc(2.5rem + 5ch);
   border: 2px solid var(--contrastLow);
   outline: solid 2px var(--contrastTransparent);
+  box-shadow: 0 4px 8px var(--primaryTransparent);
   
   transition: all 0.3s;
 }
@@ -386,4 +395,158 @@ a:active::before {
 }
 .section ul {
   margin-bottom: 1em;
+}
+
+
+
+/* CONTACT */
+
+#contactList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-block: 20px;
+}
+.contact {
+  display: flex;
+  width: max-content;
+  
+  margin-inline: auto;
+  padding: 20px;
+  border: none;
+  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+  border-radius: 10px;
+  background-color: var(--secondaryTransparent);
+  
+  box-shadow: 0 2px 2px var(--primaryTransparent);
+  cursor: pointer;
+  
+  transition: all 0.32s;
+}
+.contactImg {
+  width: 10vw;
+  margin: 10px;
+  
+  filter: drop-shadow(0 2px 1px var(--primaryTransparent));
+  transition: all 0.3s;
+}
+.contactName {
+  margin-top: auto;
+  font-size: 1.1rem;
+  color: var(--secondary);
+  font-weight: bold;
+  
+  background: linear-gradient(135deg, var(--contrastLow), var(--contrast)) text;
+  
+  transition: all 0.25s;
+}
+.contact:hover/*, .contact:focus*/ {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 5px var(--primaryTransparent);
+}
+.contact:hover .contactImg/*, .contact:focus .contactImg*/ {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 4px 3px var(--primaryTransparent));
+}
+.contact:hover .contactName/*, .contact:focus .contactName*/ {
+  color: transparent;
+}
+.contact:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 5px 5px var(--primaryTransparent);
+}
+.contact:active .contactImg  {
+  transform: translateY(-4px) scale(1.05);
+  filter: drop-shadow(0 6px 5px var(--primaryTransparent));
+}
+.contact:active .contactName {
+  color: transparent;
+}
+
+/* PROJECTS */
+.projects {
+  display: flex;
+  justify-content: center;
+  
+  margin: 30px;
+  padding: 30px 20px;
+  background-color: var(--primaryTop);
+  border-radius: 8px;
+}
+.projectsCarousel {
+  display: grid;
+  
+  grid-template-columns: auto auto auto auto auto;
+  width: max-content;
+  gap: 2vw;
+}
+.projectButton {
+  display: flex;
+  flex-direction: column;
+  
+  width: max-content;
+  margin-inline: auto;
+  align-items: center;
+  
+  gap: 14px;
+  
+  padding: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--secondaryTransparent);
+  color: var(--secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px var(--primaryTransparent);
+  
+  transition: all 0.25s;
+}
+.projectButtonImgContainer {
+  position: relative;
+  
+  width: 10vw;
+  height: 10vw;
+  border-radius: 5px;
+  background-color: var(--secondaryTransparent);
+  
+  overflow: hidden;
+}
+.projectButtonImgContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  box-shadow: inset 0 1px 1px var(--primaryTransparent);
+}
+.projectButton img {
+  width: 101%;
+  height: 101%;
+  translate: 0;
+  
+  transition: all 0.5s ease-out;
+}
+.projectButton:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 2px 6px var(--primaryTransparent);
+}
+.projectButton:hover img {
+  width: 110%;
+  height: 110%;
+  translate: -4.5% -4.5%;
+}
+.projectButton:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 2px 6px var(--primaryTransparent);
+  
+  transition: all 0.15s;
+}
+.projectButton:active img {
+  width: 101%;
+  height: 101%;
+  translate: 0;
 }

@@ -1,5 +1,4 @@
 const welcomeElement = document.getElementById("welcome");
-const sections = document.querySelectorAll(".section");
 
 const characters = "azertyuiopqsdfghjklmwxcvbn0123456789";
 const welcomeText = welcomeElement.textContent;
@@ -42,23 +41,6 @@ async function glitch() {
 
     await sleep(randint(6000, 10000));
   }
-}
-
-let observer;
-for (var i = 0 ; i < sections.length ; i++) {
-  observer = new IntersectionObserver((entries, _observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting == true) {
-        entry.target.classList.add("sectionSeen");
-      }
-    });
-  }, {
-    root: mainElement,
-    rootMargin: "0px",
-    threshold: 0.4,
-  });
-
-  observer.observe(sections[i]);
 }
 
 glitch();
@@ -157,7 +139,7 @@ for (i = 0; i < balls.length; i++) {
 
 
 function preload() {
-  exampleShader = loadShader("shaders/example.vert", "shaders/example.frag");
+  exampleShader = loadShader("shaders/index.vert", "shaders/index.frag");
 }
 
 function ballsToArray() {
@@ -197,6 +179,12 @@ function setup() {
 function onResize() {
   Cheight = document.getElementById(parent).getClientRects()[0].height;
   Cwidth = document.body.getClientRects()[0].width;
+
+  if (Cwidth > 2000) {
+    Cheight *= 2000 / Cwidth;
+    Cwidth = 2000;
+  }
+
   resizeCanvas(Cwidth, Cheight);
 
   exampleShader.setUniform("yRatio", Cwidth / Cheight);

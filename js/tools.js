@@ -19,3 +19,28 @@ function isVisible(elm) {
   let viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
   return 0 <= rect.bottom && rect.top <= viewHeight;
 }
+
+function isHovered(elm) {
+  return elm.matches(':hover')
+}
+
+// section animations
+
+const sections = document.querySelectorAll(".section");
+
+let observer;
+for (var i = 0 ; i < sections.length ; i++) {
+  observer = new IntersectionObserver((entries, _observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting == true) {
+        entry.target.classList.add("sectionSeen");
+      }
+    });
+  }, {
+    root: mainElement,
+    rootMargin: "0px",
+    threshold: 0.4,
+  });
+
+  observer.observe(sections[i]);
+}
