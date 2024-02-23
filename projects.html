@@ -65,7 +65,7 @@
             <!-- button class="projectsButtonRight">►</button -->
         </div>
 
-        <div class="section">
+        <div class="section" id="binaryLogicSection">
             <div class="sectionTop"><h1 class="sectionTitle">La logique binaire 🔌</h1><button class="sectionSee" onclick=" window.location = '/projects/binaryLogic.html' ">➜</button></div>
             <h2>Qu'est-ce que c'est ?</h2>
             <p>La logique binaire ou <a href="https://fr.wikipedia.org/wiki/Alg%C3%A8bre_de_Boole_(logique)">algèbre bouléenne</a> est l'un des <b>fondements</b> sur lequel repose l'informatique.
@@ -83,20 +83,55 @@
                 <li>D'autres plus complexes telles que le <b>NOR</b>, le <b>NAND</b>, le <b>XOR</b> ou le <b>XNOR</b></li>
             </ul>
                 
-            <p>Ce qui est très intéressant, c'est qu'une chaine de bits peut représeter une très grande variété d'informations:
+            <p>Ce qui est très intéressant, c'est qu'une chaine de bits peut représeter une très grande variété d'<b>informations</b>:
                 Des nombres, du texte, des images, un programme...
                 Par exemple pour les nombres, il est possible de les convertir en binaire qui est comme une manière de compter avec seulement deux chiffres <math>1010 = 10</math>, <math>11111101000 = 10</math>. 
 
-                Il est également possible avec des opérations bien choisies d'additionner des nombres, de les multiplier ou de créer un ordinateur complet !
+                Il est également possible avec des opérations bien choisies d'<b>additionner</b> des nombres, de les <b>multiplier</b> ou de créer un <b>ordinateur</b> complet !
             </p>
+
+
             <h2>Pouquoi ai-je réalisé ce projet, ce que j'ai fait et appris</h2>
             <p>Je me suis lancé dans ce projet car j'ai toujours voulu savoir comment fonctionnent ces machines que nous utilisons tous les jours.
                 De plus, cela m'a aussi permit de comprendre plus profondément comment marchent les langages de programmation, de la tokenisation à la compilation.
 
                 Je me suis documenté et j'ai donc réalisé <b>ma propre architecture de processeur</b> ainsi que <b>mon propre langage de langage de programmation</b> compilé pour celle-ci que j'ai nommé <i>BubulleScript</i>.
-                Plus d'information de mon voyage dans l'article <a href="/projects/binaryLogic.html">Logique Binaire</a> !
+                Plus de détails sur mon voyage dans l'article <a href="/projects/binaryLogic.html">Logique Binaire</a> !
             </p>
         </div>
+
+        <div class="section" id="shadersSection">
+            <div class="sectionTop"><h1 class="sectionTitle">Les Shaders 🌈</h1><button class="sectionSee" onclick=" window.location = '/projects/shaders.html' ">➜</button></div>
+            
+            <h2>Qu'est-ce que c'est ?</h2>
+            <p>Un shader est un <b>morceau de code</b> qui a la particularité d'être exécuté sur la <b>carte graphique</b> d'un ordinateur.
+                L'avantage est que les cartes graphiques (GPU) sont beaucoup plus rapides que les processeurs (CPU) pour effectuer des tâches <b>répétitives</b> car elles possèdent de nombreuses unités arithmétiques.
+                Cela fait des shaders un bon moyen d'effectuer un grand nombre d'opérations.
+
+                Il existe trois grandes familles de shaders : les <b>compute shaders</b> qui permettent d'effectuer des calculs complexes, les <b>shaders 3D</b> et les <b>shaders 2D</b> qui servent à faire du traitement d'image et auxquels je me suis intéressé.
+                Les shaders 2D proposent une fonction permettant d'affectuer un certain calcul sur tous les pixels d'une image <b>en même temps</b> ce qui ne serait pas possible en un temps raisonnable avec le CPU et les langages de programmation traditionnels.
+            </p>
+
+            <h2>Pouquoi ai-je réalisé ce projet, ce que j'ai fait et appris</h2>
+            <p>Je me suis intéressé aux shaders parce que j'aimais bien créer des motifs intéressant mais que le processus était toujours trop lent. De plus je me demandais bien à quoi pouvait servir ces cartes graphiques dont tout le monde parle.
+
+                J'ai donc expérimenté et fait quelques recherches sur le sujet et j'en ai créé quelques uns (celui se trouvant sur la page d'accueil en fait partie).
+                Si vous voulez plus de d'informations sur le fonctionnement visitez l'article sur <b>les Shaders</b> !
+                
+                Et si vous voulez des exemples époustouflants de ce qu'il est possible de réaliser, visiter le site Shadertoy. 
+                Quelque idées: 
+                <ul>
+                    <li><a href="https://www.shadertoy.com/view/XcXXzS">Une boule rebondissante</a></li>
+                    <li><a href="https://www.shadertoy.com/view/4fsXDj">Une planète</a></li>
+                </ul>
+                
+            </p>
+        </div>
+
+        <footer>
+            <span>Site créé par Armand</span>
+            <button id="goUp" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Monter</button>
+        </footer>
     </div>
     
     <script src="js/tools.js"></script>

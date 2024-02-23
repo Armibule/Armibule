@@ -262,8 +262,6 @@ function prepareBoidsSpeeds() {
 
 function draw() {
 
-  console.log(getFrameRate())
-
   if (!isVisible(canvas)) {
     return;
   }
