@@ -84,7 +84,7 @@ header {
   display: flex;
   align-items: center;
   
-  width: calc( 100% - 2*(var(--offset) + var(--padding)) );
+  width: calc( 100% - (var(--offset) + var(--padding)) );
   height: var(--height);
   
   padding: var(--padding) calc(var(--padding) * 2);
@@ -364,6 +364,7 @@ math {
 .sectionTop {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 .sectionTitle {
   width: max-content;
@@ -523,7 +524,7 @@ math {
   display: flex;
   justify-content: center;
   
-  margin: 30px;
+  margin: 2vw;
   padding: 30px 20px;
   background-color: var(--primaryTop);
   border-radius: 8px;
@@ -605,4 +606,48 @@ math {
 #binaryLogicSection {
   background-image: url("circuitBlack.svg");
   background-size: 100%;
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 580px) {
+  header {
+    --offset: 0.8vw;
+    --padding: 4px;
+  }
+  .headerField {
+    margin-inline: 0.5vw;
+  }
+  .headerField + .headerField::before {
+    left: -0.5vw;
+  }
+  .section {
+    padding: max(4vw, 10px);
+  }
+  .projects {
+    padding: 3vw;
+  }
+  .projectsCarousel {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .projectButton {
+    width: 100%;
+  }
+  .projectButtonImgContainer {
+    width: 20vw;
+    height: 20vw;
+  }
+  #contactList {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .contact {
+    width: 100%;
+  }
+  .contactImg {
+    width: 20vw;
+    height: 20vw;
+  }
 }
