@@ -4,12 +4,6 @@ const characters = "azertyuiopqsdfghjklmwxcvbn0123456789";
 const welcomeText = welcomeElement.textContent;
 
 
-function sleep(ms) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve("done!"), ms)
-  });
-}
-
 async function glitch() {
   while (true) {
     var content = welcomeText;

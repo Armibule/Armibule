@@ -47,11 +47,12 @@
 
 body.doIntro {
     perspective: 50px;
-    animation: introBody 5.5s, introBody2 4s forwards;
+    animation: introBody 5.5s, introBody2 4s;
 }
 
 @keyframes introScene {
     0% {
+        position: fixed;
         perspective: 100px;
         top: 0;
         left: 0;
@@ -83,6 +84,7 @@ body.doIntro {
         top: 0px;
         left: 10px;
     }  100% {
+        position: fixed;
         perspective: 100px;
         top: 0px;
         left: 0px;
@@ -107,7 +109,6 @@ body.doIntro {
 
 
 body.doIntro #introScene {
-    position: fixed;
     animation: introScene 5s , introScene2 4s;
 }
 

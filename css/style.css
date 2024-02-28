@@ -618,10 +618,14 @@ math {
     --padding: 4px;
   }
   .headerField {
-    margin-inline: 0.5vw;
+    margin-inline: 0.8vw;
+    padding: 1vw 0.8vw;
   }
   .headerField + .headerField::before {
-    left: -0.5vw;
+    left: -0.4vw;
+    height: 60%;
+    top: 20%;
+    opacity: 0.15;
   }
   .section {
     padding: max(4vw, 10px);
@@ -650,4 +654,35 @@ math {
     width: 20vw;
     height: 20vw;
   }
+}
+@media (max-width: 460px) {
+  #logo {
+    height: 80%;
+  }
+  .headerField {
+    margin-inline: 0.6vw;
+    padding: 1vw 0.6vw;
+  }
+  .headerField + .headerField::before {
+    left: -0.3vw;
+    height: 40%;
+    top: 30%;
+    opacity: 0.1;
+  }
+}
+@media (max-width: 430px) {
+  #logo {
+    height: 75%;
+  }
+  .headerField {
+    margin-inline: 0.4vw;
+    padding: 1vw 0.4vw;
+  }
+  .headerField + .headerField::before {
+    display: none;
+  }
+}
+/* small screen mode */
+@media (max-width: 410px) {
+
 }

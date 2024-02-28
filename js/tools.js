@@ -6,6 +6,13 @@ function randint(min, max) {
     return min + Math.round((max-min) * Math.random())
 }
 
+// async sleep
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(1), ms)
+  });
+}
+
 var mouseDown = 0;
 document.body.onmousedown = function() { 
   mouseDown += 1;
