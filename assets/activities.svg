@@ -1,0 +1,229 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97.13152"
+    height="72.47185" viewBox="0,0,97.13152,72.47185">
+    <defs>
+        <linearGradient x1="211.23979" y1="190.058" x2="211.23979" y2="210.37858" gradientUnits="userSpaceOnUse"
+            id="color-1">
+            <stop offset="0" stop-color="#3a96cf" stop-opacity="0.94902" />
+            <stop offset="1" stop-color="#3093d1" stop-opacity="0.98039" />
+        </linearGradient>
+        <linearGradient x1="211.23979" y1="190.058" x2="211.23979" y2="210.37858" gradientUnits="userSpaceOnUse"
+            id="color-2">
+            <stop offset="0" stop-color="#45a3de" stop-opacity="0.94902" />
+            <stop offset="1" stop-color="#3093d1" stop-opacity="0.98039" />
+        </linearGradient>
+        <linearGradient x1="234.32598" y1="171.18428" x2="264.24051" y2="171.18428" gradientUnits="userSpaceOnUse"
+            id="color-3">
+            <stop offset="0" stop-color="#fc53a8" />
+            <stop offset="1" stop-color="#e6398f" />
+        </linearGradient>
+        <linearGradient x1="221.74274" y1="179.19648" x2="273.35574" y2="179.19648" gradientUnits="userSpaceOnUse"
+            id="color-4">
+            <stop offset="0" stop-color="#fc53a8" />
+            <stop offset="1" stop-color="#e6398f" />
+        </linearGradient>
+        <linearGradient x1="226.74274" y1="184.19648" x2="278.35574" y2="184.19648" gradientUnits="userSpaceOnUse"
+            id="color-5">
+            <stop offset="0" stop-color="#fc53a8" />
+            <stop offset="1" stop-color="#e6398f" />
+        </linearGradient>
+    </defs>
+    <g transform="translate(-193.71128,-146.05189)">
+        <g stroke-linejoin="round">
+            <path d="M216.03322,194.2197v-46.91781h73.55958v46.91781z" fill="#254a26" stroke="#bf9e73"
+                stroke-width="2.5" />
+            <g id="erlenmeyer">
+                <path
+                    d="M220,190c1.2,5.2 4.8,20.3 4.8,20h-26.3c0,0 3.6,-14.9 4.8,-20z"
+                    fill="url(#color-1)" stroke="url(#color-2)" stroke-width="2" stroke-linejoin="miter">
+                    <animate attributeName="d" 
+                        values="M219,190c3,5.2 4.8,20.3 4.8,20h-26.3c0,0 3.6,-14.9 4.8,-20z;
+                                M219,192c3,5.2 4.8,20.3 4.8,18h-26.3c0,0 3.6,-14.9 4.8,-18z;
+                                M219,190c3,5.2 4.8,20.3 4.8,20h-26.3c0,0 3.6,-14.9 4.8,-20z;"
+                        dur="8s" repeatCount="indefinite"/>
+                </path>
+                <path
+                    d="M220.32372,179.02513l-1.45353,3.66865l8.17353,29.40265h-31.68756l8.17352,-29.40265l-1.45352,-3.66865"
+                    fill="none" stroke-opacity="0.8" stroke="#4d4d4d" stroke-width="2.5" stroke-linecap="round" />
+                <circle
+                    id="bubble1" r="3.5"
+                    cx="207" cy="205"
+                    fill-opacity="0" fill="#3780ad" stroke-opacity="0" stroke="#3a96cf" stroke-width="1">
+                    <animate attributeName="cy" from="205" to="195" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+                    <animate attributeName="cx" values="206;205;207;208" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+                    <animate attributeName="r" values="0;3.5;3;2.5;2;0" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+                    <animate attributeName="fill-opacity" values="0;0.98;0.98;0.98;0.5;0" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+                    <animate attributeName="stroke-opacity" values="0;0.5;0.5;0.5;0.3;0" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+                </circle>
+                <circle
+                    id="bubble2" r="3.25"
+                    cx="215" cy="202"
+                    fill-opacity="0" fill="#3683b3" stroke-opacity="0" stroke="#3a96cf" stroke-width="1">
+                    <animate attributeName="cy" from="205" to="195" dur="3.5s" repeatCount="indefinite"/>
+                    <animate attributeName="cx" values="213;211;213;212" dur="3.5s" repeatCount="indefinite"/>
+                    <animate attributeName="r" values="0;3.25;3;2.5;2;0" dur="3.5s" repeatCount="indefinite"/>
+                    <animate attributeName="fill-opacity" values="0;0.98;0.98;0.98;0.5;0" dur="3.5s" repeatCount="indefinite"/>
+                    <animate attributeName="stroke-opacity" values="0;0.5;0.5;0.5;0.3;0" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle
+                    id="bubble3" r="3"
+                    cx="210" cy="195"
+                    fill-opacity="0" fill="#3385b8" stroke-opacity="0" stroke="#3a96cf" stroke-width="1">
+                    <animate attributeName="cy" from="205" to="195" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+                    <animate attributeName="cx" values="215;216;214;213" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+                    <animate attributeName="r" values="0;3;2.5;2;1.5;0" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+                    <animate attributeName="fill-opacity" values="0;0.98;0.98;0.98;0.5;0" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+                    <animate attributeName="stroke-opacity" values="0;0.5;0.5;0.5;0.3;0" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+                </circle>
+            </g>
+            
+            <path id="quadraticCurve"
+                d="M234.32598,156.44578c0,0 2.83997,29.04403 15.17831,29.47244c12.33834,0.42842 14.73622,-29.47244 14.73622,-29.47244"
+                fill="none" stroke="url(#color-3)" stroke-width="0.5" stroke-linecap="round">
+                <animate 
+                    attributeName="d"
+                    values="M234.32598,156.44578c0,0 2.83997,29.04403 15.17831,29.47244c12.33834,0.42842 14.73622,-29.47244 14.73622,-29.47244;
+                            M221.92926,157.28071c0,0 -0.58291,19.51477 8.00807,25.43961c8.03036,5.5382 43.40437,3.96259 43.40437,3.96259;
+                            M221.74274,188.3818c0,0 4.38891,-10.05795 20.04176,-14.67271c14.72876,-4.34232 31.57123,-3.65875 31.57123,-3.65875;
+                            M234.32598,156.44578c0,0 2.83997,29.04403 15.17831,29.47244c12.33834,0.42842 14.73622,-29.47244 14.73622,-29.47244"
+                    dur="15"
+                    repeatCount="indefinite"
+                    keySplines="0.1 1 0.1 1;
+                                0.1 1 0.1 1;
+                                0.1 1 0.1 1"
+                    keyTimes="0;0.33;0.66;1"
+                    calcMode="spline"/>
+            </path>
+            
+            <g id="graph">
+                <path
+                    d="M221.6615,157.93137c0,0 0,27.46911 0,29.83398c0,0.31913 0.22612,0.5433 0.57176,0.5433c3.36257,0 54.11248,0 54.11248,0"
+                    fill="none" stroke="#cccccc" stroke-width="1" stroke-linecap="round" />
+                <path
+                    d="M222.90872,157.7004c-0.62301,0 -2.21102,0 -2.51712,0c-0.10008,0 -0.15186,-0.05796 -0.08922,-0.1547c0.27848,-0.4301 1.05334,-1.62681 1.23344,-1.90497c0.07281,-0.11245 0.20014,-0.13958 0.25897,-0.04872c0.15985,0.24687 0.90851,1.40315 1.22419,1.8907c0.08687,0.13416 0.0455,0.21769 -0.11026,0.21769z"
+                    fill="#d9d9d9" stroke="#cccccc" stroke-width="0.5" stroke-linecap="round" />
+                <path
+                    d="M275.84668,189.51664c0,-0.62301 0,-2.21102 0,-2.51712c0,-0.10008 0.05796,-0.15186 0.1547,-0.08922c0.43011,0.27848 1.62681,1.05334 1.90497,1.23344c0.11245,0.07281 0.13958,0.20014 0.04872,0.25897c-0.24687,0.15985 -1.40315,0.90852 -1.8907,1.2242c-0.13416,0.08687 -0.21769,0.0455 -0.21769,-0.11026z"
+                    fill="#d9d9d9" stroke="#cccccc" stroke-width="0.5" stroke-linecap="round" />
+            </g>
+            
+            <rect id="equationsBox" 
+                x="272" y="150" width="10" height="8"
+                d="M268.93493,157.32592v-6.21286h16.47758v6.21286z" 
+                fill="#1a3b1b" stroke="#224523" stroke-width="0.5"/>
+            
+            <g id="equation" stroke-linecap="round" stroke-width="0.5" stroke="#e7ffe8" fill="none">
+                <path>
+                    <animate
+                        attributeName="d"
+                        dur="15"
+                        values="M274.72,154.00c1.23872,0.36585 1.12045,1.88769 0.06547,2.17977;
+                                M276.64,154.97c0.90232,0.26649 0.81616,1.37503 0.04769,1.58779;
+                                M276.77,152.94c1.23872,0.36585 1.12045,1.88769 0.06547,2.17977;
+                                M274.72,154.00c1.23872,0.36585 1.12045,1.88769 0.06547,2.17977"
+                        repeatCount="indefinite"
+                        keySplines="0.1 1 0.1 1;
+                                    0.1 1 0.1 1;
+                                    0.1 1 0.1 1"
+                        keyTimes="0;0.33;0.66;1"
+                        calcMode="spline"/>
+                </path>
+                <path>
+                    <animate
+                        attributeName="d"
+                        dur="15"
+                        values="M277.29,152.57c1.97638,-0.24525 -0.01059,1.0846 0.02561,1.28162c0.13491,0.11918 0.98213,0.06547 0.98213,0.06547;
+                                M276.88,152.32c0.5917,-1.49627 0.44401,0.20446 0.43668,0.54525c-0.00733,0.34079 -0.00432,0.58406 -0.00432,0.58406;
+                                M274.56,155.07c-0.19175,-2.13686 1.10837,-0.06073 1.28162,-0.02561c0.11919,-0.13491 0.06547,-0.98212 0.06547,-0.98212;
+                                M277.29,152.57c1.97638,-0.24525 -0.01059,1.0846 0.02561,1.28162c0.13491,0.11918 0.98213,0.06547 0.98213,0.06547"
+                        repeatCount="indefinite"
+                        keySplines="0.1 1 0.1 1;
+                                    0.1 1 0.1 1;
+                                    0.1 1 0.1 1"
+                        keyTimes="0;0.33;0.66;1"
+                        calcMode="spline"/>
+                </path>
+                <path>
+                    <animate
+                        attributeName="d"
+                        dur="15"
+                        values="M276.60,156.18c-1.05497,-0.29208 -1.17325,-1.81392 0.06547,-2.17977;
+                                M276.18,154.21c0,0 0,0 2.43435,0;
+                                M278.65,155.11c-1.05497,-0.29208 -1.17325,-1.81392 0.06547,-2.17977;
+                                M276.60,156.18c-1.05497,-0.29208 -1.17325,-1.81392 0.06547,-2.17977"
+                        repeatCount="indefinite"
+                        keySplines="0.1 1 0.1 1;
+                                    0.1 1 0.1 1;
+                                    0.1 1 0.1 1"
+                        keyTimes="0;0.33;0.66;1"
+                        calcMode="spline"/>
+                </path>
+                <path>
+                    <animate
+                        attributeName="d"
+                        dur="15"
+                        values="M276.60,156.18c-1.05497,-0.29208 -1.17325,-1.81392 0.06547,-2.17977;
+                                M278.01,156.55c-0.76846,-0.21276 -0.85463,-1.32131 0.04769,-1.5878;
+                                M273.88,153.34c0,0 0,0 0.04747,1.76721 0.04747,1.76721;
+                                M276.60,156.18c-1.05497,-0.29208 -1.17325,-1.81392 0.06547,-2.17977"
+                        repeatCount="indefinite"
+                        keySplines="0.1 1 0.1 1;
+                                    0.1 1 0.1 1;
+                                    0.1 1 0.1 1"
+                        keyTimes="0;0.33;0.66;1"
+                        calcMode="spline"/>
+                </path>
+            </g>
+
+            <path d="M225.68914,216.44475v-21.71461h38.35307v21.71461z" fill="#202020" stroke="#333333"
+                stroke-width="1.5" />
+            <path d="M237.01849,214.08724v-16.88527h22.71613v16.88527z" fill="#1a1a1a" stroke="#060606"
+                stroke-width="0.5" />
+            <g stroke-width="1.5" stroke-linecap="round">
+                <path d="M239.19678,199.1429h10.1277" stroke="#b854d4"><animate attributeName="stroke-width" values="1.6;0.7;1.6" dur="5.5s" repeatCount="indefinite" begin="1.2s"/></path>
+                <path d="M239.13293,201.72106h7.49143" stroke="#6684e1"><animate attributeName="stroke-width" values="1.5;0.9;1.5" dur="5.3s" repeatCount="indefinite" begin="2.1s"/></path>
+                <path d="M249.08902,201.72106h2.15311" stroke="#60ac39"><animate attributeName="stroke-width" values="1.6;0.9;1.6" dur="4.6s" repeatCount="indefinite" begin="0.6s"/></path>
+                <path d="M239.14247,204.29922h4.18893" stroke="#ae9513"><animate attributeName="stroke-width" values="1.5;0.8;1.5" dur="5.1s" repeatCount="indefinite" begin="0s"/></path>
+                <path d="M239.07862,206.7306h6.31721" stroke="#d73737"><animate attributeName="stroke-width" values="1.6;0.8;1.6" dur="4.9s" repeatCount="indefinite" begin="1s"/></path>
+                <path d="M239.01676,209.15999h5.28977" stroke="#6684e1"><animate attributeName="stroke-width" values="1.5;1;1.5" dur="5.7s" repeatCount="indefinite" begin="0.6s"/></path>
+                <path d="M246.51199,209.24292h1.25337" stroke="#b65611"><animate attributeName="stroke-width" values="1.6;1;1.6" dur="5s" repeatCount="indefinite" begin="1.7s"/></path>
+                <path d="M249.8145,209.31631h3.67521" stroke="#d43552"><animate attributeName="stroke-width" values="1.5;0.9;1.5" dur="4.8s" repeatCount="indefinite" begin="0.8s"/></path>
+                <path d="M238.93166,211.62081h7.49143" stroke="#1fad83"><animate attributeName="stroke-width" values="1.6;1;1.6" dur="5.2s" repeatCount="indefinite" begin="1.9s"/></path>
+            </g>
+            
+            <rect id="playButtonBack"
+                x="229" y="197.3" width="4.8" height="4.8" fill="#1a1a1a" stroke="#060606" stroke-width="0.5">
+                <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 231.4 199.7"
+                    to="90 231.4 199.7"
+                    dur="2s"
+                    keySplines="0.1 0.8 0.8 1"
+                    keyTimes="0;1"
+                    calcMode="spline"
+                    repeatCount="indefinite"/>
+                <animate
+                    attributeName="rx"
+                    values="0.2;2;1;0.2"
+                    dur="2s"
+                    repeatCount="indefinite"/>
+            </rect>
+            <path id="playButton"
+                d="M0,0c0,-0.49427 0,-1.75415 0,-1.99701c0,-0.0794 0.04599,-0.12048 0.12274,-0.07079c0.34123,0.22094 1.29067,0.83568 1.51135,0.97857c0.08921,0.05776 0.11073,0.15879 0.03865,0.20546c-0.19586,0.12682 -1.11321,0.72079 -1.50002,0.97124c-0.10644,0.06892 -0.17271,0.0361 -0.17271,-0.08748z"
+                fill="#58a632" stroke="#60ac39" stroke-width="0.5" transform="translate(230.8,200.6)">
+                <animateTransform 
+                    additive="sum"
+                    attributeName="transform"
+                    type="scale" 
+                    values="1;1.2;0.9;1"
+                    dur="4s" 
+                    repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M228.96426,214.12716v-10.75578h4.80169v10.75578z" fill="#1a1a1a" stroke="#060606"
+                stroke-width="0.5"/>
+            
+            <rect x="238" y="216.5" width="13" height="2" fill="#141414" rx="2" ry="0.5"/>
+        </g>
+    </g>
+</svg>

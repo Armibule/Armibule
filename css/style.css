@@ -13,12 +13,13 @@
   --contrast_Light: #e61e82;
   --contrastLow_Light: color-mix(in hsl, var(--secondary_Light) 10%, var(--contrast_Light));
   --contrastTransparent_Light: color-mix(in srgb, var(--contrast_Light) 30%, transparent);
+  --green_Light: #24bd1c;
   
   /* Dark */
   /* needs more contrast */
   
   --primary_Dark: #000011;
-  --secondary_Dark: #eeeeff;
+  --secondary_Dark: #ddddee;  /* Moins lumineux pour être plus agréable à lire */
   
   --primaryTop_Dark: color-mix(in srgb, var(--primary_Dark) 80%, var(--secondary_Dark));
   --primaryTransparent_Dark: color-mix(in srgb, var(--primary_Dark) 15%, transparent);
@@ -27,7 +28,7 @@
   --contrast_Dark: #fc53a8;
   --contrastLow_Dark: color-mix(in hsl, var(--secondary_Dark) 15%, var(--contrast_Dark));
   --contrastTransparent_Dark: color-mix(in srgb, var(--contrast_Dark) 30%, transparent);
-  
+  --green_Dark: #24bd1c;
   
   --primary: var(--primary_Dark);
   --primaryTop: var(--primaryTop_Dark);
@@ -37,6 +38,7 @@
   --contrast: var(--contrast_Dark);
   --contrastLow: var(--contrastLow_Dark);
   --contrastTransparent: var(--contrastTransparent_Dark);
+  --green: var(--green_Dark);
   
   /*--primary: var(--primary_Light);
   --primaryTop: var(--primaryTop_Light);
@@ -45,7 +47,11 @@
   --secondaryTransparent: var(--secondaryTransparent_Light);
   --contrast: var(--contrast_Light);
   --contrastLow: var(--contrastLow_Light);
-  --contrastTransparent: var(--contrastTransparent_Light);*/
+  --contrastTransparent: var(--contrastTransparent_Light);
+  --green: var(--green_Light);*/
+  
+  --activatedHigh: #d55;
+  --activatedLow: #744;
 }
 
 * {
@@ -71,7 +77,7 @@ body {
 
 /* HEADER */
 header {
-  --offset: 1vw;
+  --offset: 0.6vw;
   --height: 60px;
   --padding: 8px;
   
@@ -84,7 +90,7 @@ header {
   display: flex;
   align-items: center;
   
-  width: calc( 100% - (var(--offset) + var(--padding)) );
+  width: calc( 100% - 2*var(--offset) - var(--padding) );
   height: var(--height);
   
   padding: var(--padding) calc(var(--padding) * 2);
@@ -195,18 +201,18 @@ footer {
 }
 #goUp:hover {
   transform: translateY(2px) scale(0.98);
-  box-shadow: 0 2px 6px var(--contrastLow);
+  box-shadow: 0 1px 8px var(--contrastLow);
   color: var(--contrast);
   outline-color: var(--contrast);
 }
 #goUp:active {
   transform: translateY(4px) scale(0.96);
-  box-shadow: 0 2px 5px var(--contrast);
+  box-shadow: 0 1px 6px var(--contrast);
 }
 
 .section b {
   color: var(--secondary);
-  transition: color 2s, text-shadow 0.5s;
+  transition: color 0.5s, text-shadow 0.5s;
 }
 .sectionSeen b {
   color: var(--contrastLow);
@@ -216,8 +222,8 @@ b {
 }
 b:hover {
   color: var(--contrast);
-  text-shadow: 0 2px 3px var(--primary);
-  transition: color 0.5s, text-shadow 0.5s;
+  text-shadow: 0 2px 2px var(--primaryTransparent);
+  transition: color 0.2s, text-shadow 0.2s;
 }
 p {
   white-space: pre-line;
@@ -236,10 +242,14 @@ ul:hover {
 }
 li {
   margin-block: 0.5em;
+  transition: padding-left 0.2s ease-out;
 }
 li::marker {
   color: var(--secondaryTransparent);
   transition: color 0.5s;
+}
+li:hover {
+  padding-left: 2px;
 }
 li:hover::marker {
   color: var(--contrastLow);
@@ -255,23 +265,23 @@ a::before {
   content: "";
   
   position: absolute;
-  left: 10%;
+  left: 8px;
   bottom: 0;
-  width: 80%;
-  height: 1.5px;
+  width: calc(100% - 16px);
+  height: 1px;
   
   background: linear-gradient(to right, var(--contrastLow), var(--contrast));
-  border-radius: 1px;
+  border-radius: 2px;
   
-  transition: all 0.5s;
+  transition: all 0.4s cubic-bezier(0.1, 1.3, 0.6, 1.2);
 }
 a:hover::before {
-  left: 0%;
+  left: 0;
   width: 100%;
 }
 a:active::before {
-  left: 15%;
-  width: 70%;
+  left: 12px;
+  width: calc(100% - 24px);
 }
 math {
   background-color: var(--primaryTransparent);
@@ -279,6 +289,32 @@ math {
   margin: 0.1em;
   border-radius: 0.2em;
 }
+/* tables */
+table {
+  border-collapse: collapse;
+  letter-spacing: 1px;
+  background-color: var(--primaryTransparent);
+}
+caption {
+  padding: 10px;
+  font-weight: bold;
+  border: solid 2px var(--secondaryTransparent);
+  border-bottom: none;
+  background-color: var(--primaryTransparent);
+}
+thead,
+tfoot {
+  background-color: var(--primaryTransparent);
+}
+th,
+td {
+  padding: 8px 10px;
+  border: solid 2px var(--secondaryTransparent);
+}
+tbody > tr:nth-of-type(even) {
+  background-color: var(--primaryTop);
+}
+
 
 
 /* HERO */
@@ -328,6 +364,17 @@ math {
 .heroText > h2 {
   font-size: 1.8rem;
 }
+@keyframes heroTextBeforeAnim {
+  from {
+    width: 5px;
+    height: 5px;
+    opacity: 0;
+  } to {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+}
 .heroText::before {
   content: "";
   position: absolute;
@@ -340,6 +387,20 @@ math {
   border-bottom: solid 2px var(--secondary);
   border-left: solid 2px var(--secondary);
   border-bottom-left-radius: 6px;
+  animation: heroTextBeforeAnim 1s ease-out;
+}
+@keyframes welcomeTextAnim {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  } to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#welcomeText {
+  opacity: 0;
+  animation: welcomeTextAnim 1s 0.3s forwards;
 }
 #heroCanvas {
   position: absolute;
@@ -360,6 +421,7 @@ math {
   min-height: 80vh;
   
   background-color: var(--primaryTop);
+  border-bottom: solid 4px color-mix(in srgb, var(--primary), var(--primaryTop) 80%);
 }
 .sectionTop {
   display: flex;
@@ -369,13 +431,42 @@ math {
 .sectionTitle {
   width: max-content;
   padding: 20px;
-  box-shadow: 0px 2px 6px -2px var(--primaryTransparent);
+  box-shadow: 0px 3px 6px -5px var(--primary);
+  text-shadow: 0px 1px 2px var(--primary);
   
   background-color: transparent;
   border-radius: 40px;
   opacity: 0;
   transform: translateX(-20px) scale(1.2);
   transition: all 1s;
+}
+.sectionPartition {
+  display: flex;
+  gap: 50px;
+}
+.sectionPartitionImage {
+  margin-inline: auto;
+  /* RESSOURCE INTENSIVE ? */
+  filter: drop-shadow(0 1px 2px var(--primaryTransparent));
+}
+.subsectionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10vw;
+  grid-row-gap: 5vh;
+  
+  border-top: solid 2px var(--primaryTransparent);
+  border-bottom: solid 2px var(--primaryTransparent);
+  margin-block: 20px;
+  padding: 20px 10px;
+  border-radius: 4px;
+  
+  transition: border-top 4s, border-bottom 4s;
+}
+.subsectionGrid:hover {
+  border-top: solid 2px var(--secondaryTransparent);
+  border-bottom: solid 2px var(--secondaryTransparent);
+  transition: border-top 2s, border-bottom 2s;
 }
 .sectionSeen .sectionTitle {
   background-color: var(--primaryTransparent);
@@ -408,14 +499,14 @@ math {
 .sectionSee:hover {
   width: calc(2.5rem + 5ch);
   border: 2px solid var(--contrastLow);
-  outline: solid 2px var(--contrastTransparent);
+  outline: solid 3px var(--contrastTransparent);
   box-shadow: 0 4px 8px var(--primaryTransparent);
   
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.1, 1.1, 0.2, 1.1);
 }
 .sectionSee:active {
   outline: solid 4px var(--contrastTransparent);
-  transition: outline 0.1s;
+  transition: outline 0.2s cubic-bezier(0.1, 1.1, 0.2, 1.1);
 }
 .sectionSee::before {
   content: "voir ";
@@ -429,13 +520,13 @@ math {
   opacity: 0;
   translate: 10px;
   scale: 0.8;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.1, 1.1, 0.2, 1.1);
 }
 .sectionSee:hover::before {
   opacity: 1;
   translate: 0;
   scale: 1;
-  transition: all 0.3s 0.1s;
+  transition: all 0.3s 0.1s cubic-bezier(0.1, 1.1, 0.2, 1.1);
 }
 .section p {
   font-size: 1.2em;
@@ -479,12 +570,21 @@ math {
   
   transition: all 0.32s;
 }
+@keyframes contactImgAnim {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
 .contactImg {
   width: 10vw;
+  height: 10vw;
   margin: 10px;
   
   filter: drop-shadow(0 2px 1px var(--primaryTransparent));
   transition: all 0.3s;
+  animation: contactImgAnim 1s;
 }
 .contactName {
   margin-top: auto;
@@ -607,6 +707,423 @@ math {
   background-image: url("circuitBlack.svg");
   background-size: 100%;
 }
+
+/* BINARY LOGIC */
+@keyframes binaryLogicHeroAnim {
+  0% {
+    background-position: 0 0;
+  } 50% {
+    background-position: 4vw 2vw;
+  } 100% {
+    background-position: 8vw 4vw;
+  }
+}
+.binaryLogicHero {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  
+  /* RESSOURCE INTENSIVE */
+  background-image: 
+    linear-gradient(transparent 70%, color-mix(in srgb, transparent 70%, var(--primaryTop)) 70%),
+    linear-gradient(90deg, transparent 70%, color-mix(in srgb, transparent 70%, var(--primaryTop)) 70%);
+  background-size: 4vw 4vw;
+  animation: binaryLogicHeroAnim 20s infinite linear;
+}
+.redAlim {
+  stroke-linecap: round;
+  stroke-width: 1.5px;
+}
+.redWire {
+  stroke-linecap: round;
+  stroke-width: 0.7px;
+}
+.binaryLogicDemo {
+  background-color: var(--primaryTransparent);
+  padding: 3vw 4vw;
+  box-shadow: 0 2px 8px -2px var(--primary);
+  border-radius: 20px;
+}
+@keyframes binaryCountingAnim {
+  0% {
+    gap: 0px;
+  } 10% {
+    gap: 20px;
+  } 100% {
+    gap: 20px;
+  }
+}
+#binaryCounting {
+  display: flex;
+  animation: binaryCountingAnim 16s infinite;
+  font-size: 1.1rem;
+}
+#binaryCounting > div:first-child {
+  margin-right: 10px;
+}
+@keyframes binaryRowOne {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  } 10% {
+    transform: translateY(40px);
+    opacity: 0;
+  } 20% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+#binaryCounting > div > div:first-child {
+  animation: binaryRowOne 16s infinite;
+  color: var(--green);
+}
+#binaryCounting > div > div:nth-child(2) {
+  color: var(--contrastLow);
+}
+@keyframes binaryRowTree {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  } 20% {
+    transform: translateY(-40px);
+    opacity: 0;
+  } 30% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+#binaryCounting > div > div:nth-child(3) {
+  animation: binaryRowTree 16s infinite;
+}
+#binaryCounting .digitWeight:first-letter {
+  color: var(--contrastLow);
+}
+#binaryCounting sup {
+  color: var(--green);
+}
+#binaryCounting > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@keyframes binaryPlusAnimation {
+  0% {
+    opacity: 0;
+    scale: 0;
+    rotate: -90deg;
+  } 30% {
+    opacity: 0;
+    scale: 0;
+    rotate: -90deg;
+  } 35% {
+    opacity: 1;
+    scale: 1.1;
+    rotate: 0deg;
+  } 36% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+#binaryCounting > .dataColumn + .dataColumn::before {
+  position: absolute;
+  content: "+";
+  
+  left: -1rem;
+  bottom: 0;
+  animation: binaryPlusAnimation 16s infinite;
+}
+@keyframes binaryCountingResultAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.8);
+  } 40% {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.8);
+  } 45% {
+    opacity: 1;
+    transform: scale(1.05);
+  } 46% {
+    transform: scale(1);
+  }
+}
+#binaryCounting > div:last-child > div:last-child {
+  animation: binaryCountingResultAnim 16s infinite;
+}
+
+#binaryConverter {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.bitSwitches {
+  display: flex;
+  gap: 10px;
+}
+.bitSwitch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.switchState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  
+  background-color: var(--primary);
+  outline: solid 2px  var(--primaryTransparent);
+  box-shadow: 0 2px 6px var(--primaryTransparent);
+  border-radius: 5px;
+  
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s;
+}
+.switchState:hover {
+  border-radius: 8px;
+  outline-color: var(--secondaryTransparent);
+  box-shadow: 0 2px 6px var(--secondaryTransparent);
+}
+.bitSwitchOn .switchState {
+  color: var(--primary);
+  background-color: color-mix(in srgb, var(--secondary), var(--primary) 15%);
+  outline: solid 2px  var(--secondaryTransparent);
+  box-shadow: 0 2px 6px var(--secondaryTransparent);
+}
+.bitSwitchOn .switchState:hover {
+  border-radius: 8px;
+  outline-color: var(--primaryTransparent);
+  box-shadow: 0 2px 6px var(--primaryTransparent);
+}
+.switchValue {
+  opacity: 0.5;
+  scale: 0.9;
+  
+  transition: all 0.5s;
+}
+.bitSwitchOn .switchValue {
+  opacity: 1;
+  scale: 1;
+}
+#binaryConverter span {
+  font-size: 1.5em;
+}
+
+#truthTables {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2vw;
+  margin-block: 50px;
+}
+
+/* Binary Logic Playground */
+.binaryLogicPlayground {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  
+  background-color: var(--primary);
+  border-radius: 20px;
+  border: solid 1.5px color-mix(in srgb, var(--secondary), var(--primary));
+  box-shadow: 0 2px 8px 4px var(--primaryTransparent);
+  overflow: hidden;
+}
+.binaryLogicPlayground svg {
+  user-select: none;
+}
+.playgroundLeftPannel {
+  position: absolute;
+  
+  width: 15vw;
+  height: 100%;
+  padding: 10px 5px;
+  
+  border-collapse: collapse;
+  
+  background-color: var(--secondaryTransparent);
+  overflow-y: auto;
+  scrollbar-color: var(--primaryTop) color-mix(in srgb, var(--primary), var(--primaryTransparent));
+  scrollbar-width: thin;
+  backdrop-filter: blur(4px);
+}
+.playgroundChoiceCategory {
+  margin-bottom: 0px;
+  transition: all 0.2s;
+}
+.expended { 
+  margin-bottom: 4px;
+}
+.playgroundChoiceCategory > span {
+  position: relative;
+  display: block;
+  
+  width: 100%;
+  padding: 4px;
+  padding-left: 10px;
+  margin-bottom: 0px;
+  border-bottom: solid 2px var(--secondaryTransparent);
+  user-select: none;
+  cursor: pointer;
+  
+  border-radius: 2px;
+  
+  transition: 0.2s;
+}
+.playgroundChoiceCategory > span:hover {
+  padding-left: 12px;
+  background-color: var(--secondaryTransparent);
+  border-radius: 4px;
+}
+.playgroundChoiceCategory > span:active {
+  padding-left: 11px;
+  background-color: var(--secondaryTransparent);
+  border-radius: 6px;
+}
+.playgroundChoiceCategory > span::after {
+  position: absolute;
+  content: "▽";
+  right: 10px;
+  font-size: 12px;
+  rotate: -90deg;
+  
+  transition: all 0.2s;
+}
+.expended > span { 
+  margin-bottom: 4px;
+}
+.expended > span::after {
+  content: "▼";
+  rotate: 0deg;
+}
+.playgroundChoices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  visibility: hidden;
+  max-height: 0px;
+  
+  background-color: var(--primaryTransparent);
+  border-radius: 50px;
+  padding: 5px;
+  overflow: hidden;
+  
+  transition: all 0.2s, visibility 0s, padding 0s;
+}
+.expended > .playgroundChoices {
+  visibility: visible;
+  max-height: 500px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.playgroundChoice {
+  display: flex;
+  justify-content: center;
+  height: max-content;
+  cursor: pointer;
+}
+.playgroundChoice > svg {
+  width: 4vw;
+  height: 4vw;
+  
+  transition: all 0.2s;
+}
+.playgroundChoice:hover > svg {
+  filter: drop-shadow(0 2px 4px var(--primaryTransparent));
+  scale: 1.05;
+}
+.playgroundField {
+  width: 100%;
+  height: 100%;
+}
+@keyframes addingGateAnim {
+  from {
+    transform: scale(0.95) translateY(0);
+    rotate: 0deg;
+  } to {
+    transform: scale(1) translateY(-2px);
+    rotate: 5deg;
+  }
+}
+.addingGate {
+  position: absolute;
+  width: 4vw;
+  height: 4vw;
+  filter: drop-shadow(0 4px 4px var(--primaryTop));
+  animation: addingGateAnim 0.5s forwards;
+  cursor: grabbing;
+}
+.playgroundField > g[gate] {
+  transition: filter 0.1s;
+  cursor: grab;
+}
+.playgroundField > g[gate]:hover {
+  filter: drop-shadow(0 2px 2px var(--primaryTop));
+}
+.playgroundField > g[gate="OneBitInput"] {
+  cursor: pointer;
+  .ring {
+    transition: stroke 0.3s 0.1s, fill 0.2s;
+  }
+  .shadow {
+    transition: all 0.3s 0.1s;
+  }
+  text {
+    transition: all 0.2s;
+  }
+}
+.playgroundField > g[gate="OneBitInput"].enabled {
+  .ring {
+    stroke: var(--activatedHigh);
+    stroke-width: 2.5px;
+    fill: var(--activatedLow);
+    transition: stroke 0.2s, fill 0.3s 0.1s;
+  }
+  .shadow {
+    stroke: #a00;
+    transition: all 0.2s;
+  }
+  text {
+    fill: #fdd;
+    transition: all 0.2s;
+  }
+}
+.movingGate {
+  filter: drop-shadow(0 4px 4px var(--primaryTop));
+  cursor: grabbing !important;
+}
+.oneBitConnector {
+  transition: all 0.2s;
+  cursor: cell
+}
+.oneBitConnector:hover {
+  stroke: var(--contrast);
+  stroke-width: 2px;
+  filter: drop-shadow(0 0 4px var(--contrast));
+}
+.wire {
+  /* RESSOURCE INTENSIVE */
+  filter: drop-shadow(0 0 1px var(--primary));
+  cursor: cell;
+  transition: filter 0.2s;
+}
+.wire:hover {
+  /* RESSOURCE INTENSIVE */
+  filter: drop-shadow(0 0 0.5px var(--contrast));
+}
+
+.oneBitConnector.activated {
+  stroke: color-mix(in srgb, var(--activatedLow), var(--activatedHigh));
+  fill: var(--activatedLow);
+}
+.wire.activated {
+  stroke: var(--activatedLow);
+}
+
+
+
 
 
 

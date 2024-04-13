@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,42.36481,37.0006">
+    <g stroke-miterlimit="10">
+        <path
+            d="M3.735 33.923V3.562c0-.795.522-1.444 1.398-1.444H21.01c5.59 0 16.287 1.225 16.608 16.668C37.954 34.889 26.455 36 20.834 36H5.44c-1.06 0-1.705-.772-1.705-2.078z"
+            fill="#3212b3" stroke="#1f30cc" stroke-width="2" />
+        <path
+            d="M3.735 32.805V2.445C3.735 1.648 4.257 1 5.133 1H21.01c5.59 0 16.287 1.225 16.608 16.668.336 16.103-11.163 17.215-16.784 17.215H5.44c-1.06 0-1.705-.771-1.705-2.078z"
+            fill="#3212b3" stroke="#1664d9" stroke-width="2" />
+        <path class="oneBitConnector" d="M36.95 17.885a2.457 2.457 0 114.915 0 2.457 2.457 0 01-4.915 0z" fill="#333"
+            stroke="#4d4d4d" />
+        <g fill="#333" stroke="#4d4d4d">
+            <path class="oneBitConnector inputConnector"
+                d="M.5 8.1a2.457 2.457 0 114.915 0A2.457 2.457 0 01.5 8.1z" />
+            <path class="oneBitConnector inputConnector"
+                d="M.5 27.92a2.457 2.457 0 114.915 0 2.457 2.457 0 01-4.915 0z" />
+        </g>
+        <text transform="translate(10.532 21.192) scale(.22433)" font-size="40" fill="#99c2ff" font-family="Sans-Serif">
+            <tspan>AND</tspan>
+        </text>
+    </g>
+</svg>
