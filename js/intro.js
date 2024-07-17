@@ -52,33 +52,42 @@ if (doIntro != "no") {
                 },
               ],
               5000
-        )
+        );
 
-        introElement.appendChild(star)
+        introElement.appendChild(star);
 
-        return star
+        return star;
     }
 
     function spawnStars(count) {
-        spawned = []
+        spawned = [];
         for (i = 0 ; i < count ; i++) {
-            spawned.push(spawnStar())
+            spawned.push(spawnStar());
         }
-        return spawned
+        return spawned;
     }
 
-    const stars = spawnStars(200)
+    const stars = spawnStars(200);
+
+
+    setTimeout(() => {
+        onResize();
+    }, 4000);
+
+    setTimeout(() => {
+        onResize();
+    }, 5000);
 
     // remove all stars after animation
     setTimeout(() => {
-        onResize()
+        onResize();
         if (doIntro != "always") {
-            storage.setItem("doIntro", "no")
+            storage.setItem("doIntro", "no");
         }
 
         stars.forEach((star) => {
-            star.remove()
+            star.remove();
         })
-    }, 6000)
+    }, 6000);
 }
 

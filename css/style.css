@@ -1,6 +1,6 @@
 :root {
   --spaceColorDark: #01012c;
-  --spaceColor: #060682;
+  --spaceColor: #0a0a5e;
   
   /* Light */
   --primary_Light: #ddddff;
@@ -325,7 +325,7 @@ tbody > tr:nth-of-type(even) {
   display: flex;
   align-items: center;
   
-  padding: 4vw 6vw;
+  padding: 4vw calc(5vw + 15px);
   height: 80vh;
   background: var(--background);
 }
@@ -448,6 +448,28 @@ tbody > tr:nth-of-type(even) {
   margin-inline: auto;
   /* RESSOURCE INTENSIVE ? */
   filter: drop-shadow(0 1px 2px var(--primaryTransparent));
+  
+  opacity: 0;
+  transform: translateX(200px) scale(0.8);
+}
+@keyframes sectionPartitionImageAnim {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes sectionPartitionImageAnimLong {
+  0% {
+    translate: 0 -2px;
+  } 50% {
+    translate: 0 2px;
+  } 100% {
+    translate: 0 -2px;
+  }
+}
+.sectionSeen .sectionPartitionImage {
+  animation: sectionPartitionImageAnim 1s forwards cubic-bezier(0.5, 1.1, 0.5, 1.1),
+             sectionPartitionImageAnimLong 8s infinite cubic-bezier(0.5, 1.1, 0.5, 1.1);
 }
 .subsectionGrid {
   display: grid;
@@ -546,8 +568,11 @@ tbody > tr:nth-of-type(even) {
 
 #contactList {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-block: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-block: 40px;
+  width: max-content;
+  margin-inline: auto;
+  gap: 20px;
 }
 .contact {
   display: flex;
@@ -572,9 +597,13 @@ tbody > tr:nth-of-type(even) {
 }
 @keyframes contactImgAnim {
   from {
-    opacity: 0;
+    opacity: 0.5;
+    background-color: var(--primaryTransparent);
+    border-radius: 50%;
   } to {
     opacity: 1;
+    background-color: transparent;
+    border-radius: 0;
   }
 }
 .contactImg {
@@ -599,6 +628,7 @@ tbody > tr:nth-of-type(even) {
 .contact:hover/*, .contact:focus*/ {
   transform: translateY(-3px);
   box-shadow: 0 5px 5px var(--primaryTransparent);
+  border-radius: 15px;
 }
 .contact:hover .contactImg/*, .contact:focus .contactImg*/ {
   transform: translateY(-2px) scale(1.05);
@@ -610,6 +640,7 @@ tbody > tr:nth-of-type(even) {
 .contact:active {
   transform: translateY(0) scale(0.98);
   box-shadow: 0 5px 5px var(--primaryTransparent);
+  border-radius: 20px;
 }
 .contact:active .contactImg  {
   transform: translateY(-4px) scale(1.05);
@@ -705,7 +736,8 @@ tbody > tr:nth-of-type(even) {
 
 #binaryLogicSection {
   background-image: url("circuitBlack.svg");
-  background-size: 100%;
+  background-size: 105%;
+  background-position: 40% 25%;
 }
 
 /* BINARY LOGIC */
@@ -1128,15 +1160,26 @@ tbody > tr:nth-of-type(even) {
 
 
 /* RESPONSIVE */
-
-@media (max-width: 580px) {
+@media (max-width: 800px) {
+  .sectionPartition {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sectionPartitionImage {
+    width: 50%;
+  }
+  .subsectionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
   header {
     --offset: 0.8vw;
     --padding: 4px;
   }
   .headerField {
     margin-inline: 0.8vw;
-    padding: 1vw 0.8vw;
+    padding: 1.5vw 0.8vw;
   }
   .headerField + .headerField::before {
     left: -0.4vw;
@@ -1166,19 +1209,26 @@ tbody > tr:nth-of-type(even) {
   }
   .contact {
     width: 100%;
+    padding: 20px 10px;
   }
   .contactImg {
     width: 20vw;
     height: 20vw;
   }
+  .sectionSee:hover {
+    width: 2.5rem;
+  }
+  .sectionSee:before {
+    display: none;
+  }
 }
-@media (max-width: 460px) {
+@media (max-width: 475px) {
   #logo {
     height: 80%;
   }
   .headerField {
     margin-inline: 0.6vw;
-    padding: 1vw 0.6vw;
+    padding: 2vw 0.6vw;
   }
   .headerField + .headerField::before {
     left: -0.3vw;
@@ -1186,20 +1236,28 @@ tbody > tr:nth-of-type(even) {
     top: 30%;
     opacity: 0.1;
   }
+  .sectionTitle {
+    font-size: 1.8em;
+    padding: 15px;
+  }
 }
-@media (max-width: 430px) {
+@media (max-width: 450px) {
   #logo {
     height: 75%;
   }
   .headerField {
     margin-inline: 0.4vw;
-    padding: 1vw 0.4vw;
+    padding: 2vw 0.4vw;
+    font-size: 0.9em;
   }
   .headerField + .headerField::before {
     display: none;
   }
+  .headerField:first-letter {
+    font-size: 1em;
+  }
 }
 /* small screen mode */
-@media (max-width: 410px) {
+@media (max-width: 390px) {
 
 }

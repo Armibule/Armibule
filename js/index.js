@@ -172,7 +172,7 @@ function setup() {
 
 function onResize() {
   Cheight = document.getElementById(parent).getClientRects()[0].height;
-  Cwidth = document.body.getClientRects()[0].width;
+  Cwidth = document.getElementById(parent).getClientRects()[0].width;
 
   if (Cwidth > 2000) {
     Cheight *= 2000 / Cwidth;

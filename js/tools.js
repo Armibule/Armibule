@@ -6,6 +6,10 @@ function randint(min, max) {
     return min + Math.round((max-min) * Math.random())
 }
 
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
 // async sleep
 function sleep(ms) {
   return new Promise((resolve) => {
