@@ -152,7 +152,7 @@ function draw() {
         } else {
           linesDrawn.add(`${dot.id},${otherDot.id}`);
 
-          stroke(distance*5 + 120, distance*3 + 120, 255, 8000/distance);
+          stroke(distance*4 + 0, distance*2 + 120, 255, 8000/distance);
           vertex(dot.x - Cwidth/2, dot.y - Cheight/2);
           vertex(otherDot.x - Cwidth/2, otherDot.y - Cheight/2);
         }

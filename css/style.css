@@ -21,7 +21,7 @@
   --primary_Dark: #000011;
   --secondary_Dark: #ddddee;  /* Moins lumineux pour être plus agréable à lire */
   
-  --primaryTop_Dark: color-mix(in srgb, var(--primary_Dark) 80%, var(--secondary_Dark));
+  --primaryTop_Dark: color-mix(in srgb, var(--primary_Dark) 78%, var(--secondary_Dark));
   --primaryTransparent_Dark: color-mix(in srgb, var(--primary_Dark) 15%, transparent);
   --secondaryTransparent_Dark: color-mix(in srgb, var(--secondary_Dark) 20%, transparent);
   
@@ -431,8 +431,9 @@ tbody > tr:nth-of-type(even) {
 .sectionTitle {
   width: max-content;
   padding: 20px;
-  box-shadow: 0px 3px 6px -5px var(--primary);
+  box-shadow: 0px 3px 6px -4px var(--primary);
   text-shadow: 0px 1px 2px var(--primary);
+  outline: solid 1px var(--secondaryTransparent);
   
   background-color: transparent;
   border-radius: 40px;
