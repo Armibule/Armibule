@@ -43,7 +43,7 @@ function animateProjetButtons() {
 /* SHADER */
 
 let exampleShader;
-const BOID_COUNT = 50;
+const BOID_COUNT = 10; // 50;
 const boids = [];
 const NIGHBORS = 5;
 
@@ -98,19 +98,6 @@ class Boid {
   }
 
   applyForces(other, distanceSquared, strenght) {
-    /*// let distance = Math.sqrt(distanceSquared);
-
-
-    // same direction
-    //this.angle += (other.angle - this.angle) / distanceSquared / 10000;
-    //other.angle += (this.angle - other.angle) / distanceSquared / 10000;
-    
-    
-    // repell
-    if (distance < 1 || true) {
-        
-    }*/
-
     var relativeToward = mod(Math.atan2(this.x - other.x, this.y - other.y) + PI - this.angle, TWO_PI);
 
     // TODO : Fix angle interpolation
@@ -153,8 +140,6 @@ class Boid {
     if (Math.abs(this.angleSpeed) > MAX_ANGLE_SPEED) {
       this.angleSpeed = this.angleSpeed / Math.abs(this.angleSpeed) * MAX_ANGLE_SPEED;
     }
-
-
 
     let vx = Math.sin(this.angle) * this.speed;
     let vy = Math.cos(this.angle) * this.speed;
@@ -224,7 +209,6 @@ class Boid {
       }
     }
 
-    // ??? TODO : projection of the new speed and angle perpendiculary to the border
     if (this.x >= 1.0) {
       //this.x = 0.99
       this.x = -0.99

@@ -66,20 +66,20 @@ class Ball {
     this.y += this.vy;
 
     if (this.x < 0) {
-      this.vx *= -0.96;
-      this.x = 0.01;
+      this.vx *= -0.80;
+      this.x = 0.001;
     }
     if (this.y < 0) {
-      this.vy *= -0.96;
-      this.y = 0.01;
+      this.vy *= -0.80;
+      this.y = 0.001;
     }
     if (1 < this.x) {
-      this.vx *= -0.96;
-      this.x = 0.99;
+      this.vx *= -0.80;
+      this.x = 0.999;
     }
     if (1 < this.y) {
-      this.vy *= -0.96;
-      this.y = 0.99;
+      this.vy *= -0.80;
+      this.y = 0.999;
     }
   }
 
@@ -236,6 +236,8 @@ function draw() {
   }
 
   exampleShader.setUniform("balls", ballsToArray());
+
+  exampleShader.setUniform("time", Date.now() % 1_000_000);
 
   // exampleShader.setUniform("hand", [mx, my]);
 
