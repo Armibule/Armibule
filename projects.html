@@ -19,14 +19,14 @@
             <img src="assets/PP_transparent128.png" id="logo" onclick=" window.location = '/Armibule/index.html' ">
             <div class="headerField" onclick=" window.location = '/Armibule/projects.html' ">⭐ projets</div>
             <div class="headerField" onclick=" window.location = '/Armibule/skills.html' ">📚 compétences</div>
-            <div class="headerField" onclick=" window.location = '/Armibule/rewards.html' ">🏆 prix</div>
+            <!--div class="headerField" onclick=" window.location = '/Armibule/rewards.html' ">🏆 prix</div-->
             <div class="headerField" onclick=" window.location = '/Armibule/contact.html' ">🚀 contact</div>
         </header>
 
         <div class="hero" id="projectsHero">
             <div class="heroText">
                 <h1 id="welcome">Mes Projets</h2>
-                <h2 id="welcomeText">Et leurs explications</h1>
+                <h2 id="welcomeText">Et leur description</h1>
             </div>
         </div>
 
@@ -35,25 +35,25 @@
             <p>Les projets que je réalise se présentent comme des <b>défis</b> que je me lance suite à la <b>découverte</b> d'un sujet qui me semble intéressant.
                 Ils sont principalement centrés sur l'<b>informatique</b>, les <b>mathématiques</b> et d'autres domaines proches.
                 
-                Je vous en présente ici un échantillon avec des détails supplémentaires ainsi que des éléments <b>interactifs</b>.
-                Je vous recommande la <b>Logique Binaire</b> car j'ai inclus des éléments visuels.
+                Je vous en présente ici un échantillon avec des détails supplémentaires.
+                L'article <b>Logique Binaire</b> a des éléments <b>interactifs</b> et visuels mais n'est pas terminé.
             </p>
         </div>
 
         <div class="projects">
             <!-- button class="projectsButtonLeft">◄</button -->
             <div class="projectsCarousel">
+                <button class="projectButton" onclick=" //window.location = '/Armibule/projects/chess.html' ">
+                    <div class="projectButtonImgContainer"><img src="assets/chess2.png"></div>
+                    <span>Bot d'échecs</span>
+                </button>
                 <button class="projectButton" onclick=" window.location = '/Armibule/projects/binaryLogic.html' ">
                     <div class="projectButtonImgContainer"><img src="assets/logiqueBinaire.png"></div>
                     <span>Logique Binaire</span>
                 </button>
-                <button class="projectButton" onclick=" window.location = '/Armibule/projects/shaders.html' ">
+                <button class="projectButton" onclick=" //window.location = '/Armibule/projects/shaders.html' ">
                     <div class="projectButtonImgContainer"><img src="assets/gradient.png"></div>
                     <span>Les Shaders</span>
-                </button>
-                <button class="projectButton" onclick=" //window.location = '/Armibule/projects/chess.html' ">
-                    <div class="projectButtonImgContainer"><img src="assets/chess.png"></div>
-                    <span>Bot d'échecs</span>
                 </button>
                 <button class="projectButton" onclick=" //window.location = '/Armibule/projects/relayBot.html' ">
                     <div class="projectButtonImgContainer"><img src="assets/relayBot.png"></div>
@@ -65,6 +65,32 @@
                 </button>
             </div>
             <!-- button class="projectsButtonRight">►</button -->
+        </div>
+
+        <div class="section" id="binaryLogicSection">
+            <div class="sectionTop"><h1 class="sectionTitle">Le bot d'échecs ♟️</h1><!--button class="sectionSee" onclick=" window.location = '/Armibule/projects/binaryLogic.html' ">➜</button--></div>
+            <h2>Qu'est-ce que c'est ?</h2>
+            <p>J'ai créé un programme en C++ avec comme but de le rendre le meilleur possible aux échecs. 
+                Pour cela, il faut d'abord commencer par créer un échequier fonctionnel faisant respespecter toutes les règles, même les plus rares comme la <a href="https://fr.wikipedia.org/wiki/En_passant_(%C3%A9checs)">prise en passant</a> ou la <a href="https://fr.wikipedia.org/wiki/R%C3%A8gle_des_50_coups">règle des 50 coups</a>.
+                
+                Ensuite, on commence avec un algorithme simple (min-max) qui va observer un certain nombre de coups possibles dans le futur et donner le coup qui avantage le plus le programme mais qui reste acceptable par les deux joueurs.
+                L'évaluation de l'avantage d'une position est au début très simplement obtenue en faisant la somme des valeurs des pièces.
+
+                Le programme pourrait fonctionner mais il serait alors très faible et lent. 
+                J'ai donc appliqué de nombreuses améliorations:
+            </p>
+                <ul>
+                    <li>Utilisé représentation du plateau de jeu avec des masques de bits pour plus d'efficacité (bitboards)</li>
+                    <li>Généré les coups en utilisant une grande table de références</li>
+                    <li>Utilisé un meilleur algorithme de recherche en évitant les coups inutiles ou improbables (<b>Alpha Beta</b>, <b>PV-Search</b>, <b>NMP</b>, <b>LMR</b>...)</li>
+                    <li>Pris en compte d'autres éléments dans l'évaluation des positions (position des pièces, sécurité du roi, mobilité...)</li>
+                    <li>La dernière version évalue le plateau avec un réseau de neurones (<a href="https://www.chessprogramming.org/NNUE">NNUE</a>) que j'ai entrainé avec mon propre algorithme</li>
+                </ul>
+            <p>Bref, ce projet qui commençait simplement s'est révélé très intéressant à faire. 
+                Le programme a probablement dû atteindre un classement d'environ <b>2400 elo</b> (≈ maître international) même si je ne l'ai pas testé rigoureusement (il peut battre le bot 2900 de chess.com au maximum)
+                
+                Voici le github du projet : <a href="https://github.com/Armibule/ArmibuleFish">https://github.com/Armibule/ArmibuleFish</a>
+            </p>
         </div>
 
         <div class="section" id="binaryLogicSection">
@@ -86,7 +112,7 @@
             <p>Une chaine de bits peut représeter une très grande variété d'<b>informations</b>:
                 Des nombres, du texte, des images, un programme...</p>
 
-            <h2>Pouquoi ai-je réalisé ce projet, ce que j'ai fait et appris</h2>
+            <h2>Pouquoi j'ai réalisé ce projet et ce que j'ai appris</h2>
             <p>Je me suis lancé dans ce projet car j'ai toujours voulu savoir comment fonctionnent ces machines que nous utilisons tous les jours.
                 De plus, cela m'a aussi permit de comprendre plus profondément comment marchent les langages de programmation, de la tokenisation à la compilation.
 
@@ -96,26 +122,24 @@
         </div>
 
         <div class="section" id="shadersSection">
-            <div class="sectionTop"><h1 class="sectionTitle">Les Shaders 🌈</h1><button class="sectionSee" onclick=" window.location = '/projects/shaders.html' ">➜</button></div>
+            <div class="sectionTop"><h1 class="sectionTitle">Les Shaders 🌈</h1><!--button class="sectionSee" onclick=" window.location = '/projects/shaders.html' ">➜</button--></div>
             
             <h2>Qu'est-ce que c'est ?</h2>
-            <p>Un shader est un <b>morceau de code</b> qui a la particularité d'être exécuté sur la <b>carte graphique</b> d'un ordinateur.
-                L'avantage est que les cartes graphiques (GPU) sont beaucoup plus rapides que les processeurs (CPU) pour effectuer des tâches <b>répétitives</b> car elles possèdent de nombreuses unités arithmétiques.
+            <p>Un shader est un <b>programme</b> qui a la particularité d'être exécuté sur la <b>carte graphique</b> d'un ordinateur.
+                L'avantage est que les cartes graphiques ou <b>GPU</b>s, sont beaucoup plus rapides que les processeurs, pour effectuer des tâches <b>répétitives</b> car elles possèdent de nombreuses unités arithmétiques.
                 Cela fait des shaders un bon moyen d'effectuer un grand nombre d'opérations.
 
                 Il existe trois grandes familles de shaders : les <b>compute shaders</b> qui permettent d'effectuer des calculs complexes, les <b>shaders 3D</b> et les <b>shaders 2D</b> qui servent à faire du traitement d'image et auxquels je me suis intéressé.
-                Les shaders 2D proposent une fonction permettant d'affectuer un certain calcul sur tous les pixels d'une image <b>en même temps</b> ce qui ne serait pas possible en un temps raisonnable avec le CPU et les langages de programmation traditionnels.
+                Les shaders 2D proposent permettent d'affectuer un certain calcul sur tous les pixels d'une image <b>en même temps</b> ce qui ne serait pas possible en un temps raisonnable avec le CPU et les langages de programmation traditionnels.
             </p>
 
-            <h2>Pouquoi ai-je réalisé ce projet, ce que j'ai fait et appris</h2>
-            <p>Je me suis intéressé aux shaders parce que j'aimais bien créer des motifs intéressant mais que le processus était toujours trop lent. 
-                De plus je me demandais bien à quoi pouvait servir ces cartes graphiques dont tout le monde parle.
+            <h2>Pouquoi j'ai réalisé ce projet et ce que j'ai appris</h2>
+            <p>Je me suis intéressé aux shaders parce que j'aimais bien créer des motifs intéressant mais je voulais que le programme tourne <b>en temps réel</b>. 
+                De plus je me demandais bien à quoi pouvait servir les cartes graphiques dont tout le monde parle.
 
-                J'ai donc expérimenté et fait quelques recherches sur le sujet et j'en ai créé quelques uns (celui se trouvant sur la page d'accueil en fait partie).
-                Si vous voulez plus de d'informations sur le fonctionnement visitez l'article sur <b>les Shaders</b> !
+                J'ai donc expérimenté et fait quelques recherches sur le sujet et j'en ai créé quelques uns (le bandeau de la page d'accueil en fait partie).
                 
-                Et si vous voulez des exemples époustouflants de ce qu'il est possible de réaliser, visiter le site Shadertoy. 
-                Quelque idées: 
+                Si vous voulez des exemples époustouflants de ce qui est possible, visitez le site <b>Shadertoy</b>. 
                 <ul>
                     <li><a href="https://www.shadertoy.com/view/XcXXzS">Une boule rebondissante</a> ⚽</li>
                     <li><a href="https://www.shadertoy.com/view/4fsXDj">Une planète</a> 🌍</li>

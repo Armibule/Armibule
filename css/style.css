@@ -120,6 +120,7 @@ header {
   
   padding: 10px;
   border-radius: 20px;
+  text-shadow: 0 0.5px 1px var(--primary);
   
   transition: all 0.5s;
 }
@@ -384,6 +385,7 @@ tbody > tr:nth-of-type(even) {
   width: 30px;
   height: 30px;
   
+  border-radius: 2px;
   border-bottom: solid 2px var(--secondary);
   border-left: solid 2px var(--secondary);
   border-bottom-left-radius: 6px;
@@ -401,6 +403,7 @@ tbody > tr:nth-of-type(even) {
 #welcomeText {
   opacity: 0;
   animation: welcomeTextAnim 1s 0.3s forwards;
+  color: color-mix(in srgb, var(--secondary) 95%, var(--primary));
 }
 #heroCanvas {
   position: absolute;
